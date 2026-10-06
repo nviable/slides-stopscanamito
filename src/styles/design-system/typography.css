@@ -1,0 +1,12 @@
+/* Google Fonts are loaded by a <link> in index.html. */
+:root{
+--ss-font-display:"Outfit",system-ui,sans-serif;--ss-font-body:"Nunito Sans","Nunito",system-ui,sans-serif;--ss-font-hand:"Gochi Hand",cursive;
+--ss-text-display-xl-size:48px;--ss-text-display-xl-line:56px;--ss-text-display-xl-tracking:-0.02em;--ss-text-display-xl-weight:700;
+--ss-text-display-lg-size:32px;--ss-text-display-lg-line:40px;--ss-text-display-lg-tracking:-0.01em;--ss-text-display-lg-weight:600;
+--ss-text-headline-md-size:24px;--ss-text-headline-md-line:32px;--ss-text-headline-md-weight:600;
+--ss-text-body-lg-size:18px;--ss-text-body-lg-line:28px;--ss-text-body-lg-weight:400;
+--ss-text-body-md-size:16px;--ss-text-body-md-line:24px;--ss-text-body-md-weight:400;
+--ss-text-body-sm-size:14px;--ss-text-body-sm-line:20px;--ss-text-body-sm-weight:400;
+--ss-text-label-md-size:12px;--ss-text-label-md-line:16px;--ss-text-label-md-tracking:0.05em;--ss-text-label-md-weight:600;
+--ss-text-hand-lg-size:24px;--ss-text-hand-lg-line:32px;--ss-text-hand-lg-weight:400;
+}

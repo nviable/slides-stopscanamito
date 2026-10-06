@@ -1,0 +1,21 @@
+<section class="slide" data-id="asks1" data-label="The gap is on the person's side" data-steps="2">
+  <p class="eyebrow abs" style="left:100px;top:84px">Provenance matured fast</p>
+  <h2 class="h1 abs" style="left:100px;top:126px;width:1700px;font-size:64px">The gap is now on the person's side</h2>
+  <div class="fail card" style="left:100px"><b>A signing flaw</b><p class="small" style="color:var(--ink)">Nikon suspended content credentials on its only C2PA camera in Sep 2025 after it signed a composite, and invalidated every certificate it had issued.</p><span class="cite">DPReview, Sep 2025</span></div>
+  <div class="fail card" style="left:690px"><b>A signing oracle</b><p class="small" style="color:var(--ink)">Pixel Camera signatures were forged on rooted or fault-injected Pixel 8a and 9a phones, without extracting the key.</p><span class="cite">Buchanan, Aug 2026 · blog, not peer-reviewed</span></div>
+  <div class="fail card" style="left:1280px"><b>A valid signature on a fake</b><p class="small" style="color:var(--ink)">Photographing a synthetic image on a screen with a signing camera yields a valid signature.</p><span class="cite">Chimera, USENIX Security 2025</span></div>
+  <div data-in="1">
+    <p class="label abs" style="left:100px;top:600px">What each piece leaves open for the person</p>
+    <p class="gaptag" style="top:652px">A valid signature doesn't mean a true scene</p>
+    <p class="gaptag" style="top:738px">Some validators skip revocation checks by default</p>
+    <p class="gaptag" style="top:824px">It verifies the publisher, not the claim</p>
+    <p class="gaptag" style="top:910px">It can contradict a validly signed manifest</p>
+  </div>
+  <p class="src"><a href="https://www.dpreview.com/news/0156322200/nikon-temporarily-suspends-its-z6iii-content-credential-program/" target="_blank" rel="noopener">DPReview</a> · <a href="https://www.da.vidbuchanan.co.uk/blog/android-c2pa.html" target="_blank" rel="noopener">Buchanan</a> · <a href="https://www.usenix.org/system/files/usenixsecurity25-park.pdf" target="_blank" rel="noopener">Park et al., USENIX Security 2025</a> · <a href="https://petapixel.com/2025/09/22/nikon-cant-fully-solve-the-z6-iiis-c2pa-problems-alone/" target="_blank" rel="noopener">PetaPixel</a> · <a href="https://iptc.org/news/iptc-c2pa-verified-news-publishers/" target="_blank" rel="noopener">IPTC Verified News Publishers</a> · <a href="https://arxiv.org/abs/2603.02378" target="_blank" rel="noopener">Nemecek et al., CVPR Workshops 2026</a></p>
+  <aside class="notes"><ul>
+    <li>Say what the room built first. Then the three failures in their verified form.</li>
+    <li>Nikon is a suspension of one camera, not an industry retreat. Canon and Sony expanded support in 2026.</li>
+    <li>Pixel. Pixel 8a and 9a, rooted or fault-injected, key used as a signing oracle. Not Pixel 10, no key extracted.</li>
+    <li>Beat 2. The provenance chips come back out with the gap each leaves for the person.</li>
+  </ul></aside>
+</section>

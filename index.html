@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>STOP&amp;SCAN and Amito</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700&family=Gochi+Hand&display=swap">
+</head>
+<body>
+  <div id="viewport">
+    <div id="stage" role="region" aria-label="Presentation">
+      <!-- slides from src/slides/ are inserted here -->
+      <div id="pile" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div id="notes" hidden></div>
+  <nav class="ui" id="ui" aria-label="Presentation controls">
+    <button type="button" id="bPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <span class="count" id="count" aria-live="polite"></span>
+    <button type="button" id="bNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" id="bNotes" aria-pressed="false">Notes</button>
+    <button type="button" id="bAud">Audience: IPTC</button>
+    <button type="button" id="bFull">Full screen</button>
+  </nav>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

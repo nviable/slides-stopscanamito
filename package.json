@@ -1,0 +1,18 @@
+{
+  "name": "stopscan-deck",
+  "private": true,
+  "version": "0.1.0",
+  "description": "STOP&SCAN and Amito presentation for the IPTC working group and JPEG Trust",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check && vite build",
+    "preview": "vite preview",
+    "check": "node scripts/check.mjs",
+    "shots": "node scripts/shots.mjs",
+    "pdf": "node scripts/export-pdf.mjs"
+  },
+  "devDependencies": {
+    "vite": "^8.3.3"
+  }
+}
