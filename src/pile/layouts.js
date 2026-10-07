@@ -16,11 +16,9 @@ import { CHIPS, byId, ofSector, ofStep, ofFamily, rnd } from './chips.js';
 export const COL = { stop: 0, source: 1, content: 2, alignment: 3, reflect: 4 };
 export const COLX = [100, 448, 796, 1144, 1492]; // left edge of each STOP&SCAN column, width 328
 
-// Government rules for marking and labelling. All seven sit on Many hands (the
-// government beat), Two families, and Frameworks. Later layouts keep the original
-// three so a single policy row does not overflow the stage.
+// Government rules for marking and labelling. All seven stay together from Many
+// hands through the handoff. Distribution leaves the whole set out of the method strip.
 const MARKING_RULES = ['euai', 'eucop', 'nist', 'india', 'caai', 'krfw', 'sgel'];
-const EXTRA_RULES = new Set(['india', 'caai', 'krfw', 'sgel']);
 
 export const layouts = {
   title: () => ({ __drop: true }),
@@ -67,29 +65,29 @@ export const layouts = {
     return out;
   },
 
-  // "Literacy help exists". The pile sits on the right. Beat 1 lifts the government
-  // marking rules into a block across that side and tucks the rest of the pile underneath.
+  // "Literacy help exists". Beat 1 scatters every chip already on stage, including
+  // all seven marking rules. Practice waits unseen until beat 2. Beat 2 keeps the
+  // method pile above and the marking rules in a block below it.
   frameworks(b) {
     const out = {};
     const rules = MARKING_RULES;
     const ruleSet = new Set(rules);
-    const ruleAt = j => ({ x: 1110 + (j % 2) * 380, y: 348 + Math.floor(j / 2) * 64, r: 0 });
     if (!b) {
-      const ids = CHIPS.map(c => c.id).filter(id => !EXTRA_RULES.has(id)).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
+      const ids = CHIPS.map(c => c.id).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
       ids.forEach((id, k) => {
         const col = k % 2, row = Math.floor(k / 2);
-        const x = 1180 + col * 330 + rnd(id, 'fx') * 24, y = 376 + row * 50 + rnd(id, 'fy') * 6;
-        if (byId[id].sector === 'practice') out[id] = { x, y: y + 40, o: 0 };
+        const x = 1160 + col * 350 + rnd(id, 'fx') * 16, y = 332 + row * 42 + rnd(id, 'fy') * 4;
+        if (byId[id].sector === 'practice') out[id] = { x, y: y + 24, o: 0 };
         else out[id] = { x, y, r: (rnd(id, 'r') - .5) * 6, o: .42, dl: row * .02 };
       });
-      rules.forEach((id, j) => { if (EXTRA_RULES.has(id)) out[id] = { ...ruleAt(j), o: 0 }; });
       return out;
     }
+    const ruleAt = j => ({ x: 1110 + (j % 2) * 380, y: 728 + Math.floor(j / 2) * 62, r: 0, s: .9 });
     rules.forEach((id, j) => { out[id] = { ...ruleAt(j), o: 1, dl: j * .04 }; });
     const rest = CHIPS.map(c => c.id).filter(id => !ruleSet.has(id)).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
     rest.forEach((id, k) => {
       const col = k % 3, row = Math.floor(k / 3);
-      const place = { x: 1110 + col * 245, y: 710 + row * 36, r: 0, s: .7, dl: .08 + row * .02 };
+      const place = { x: 1110 + col * 245, y: 312 + row * 36, r: 0, s: .7, dl: .08 + row * .02 };
       if (byId[id].sector === 'practice') out[id] = { ...place, o: 1, cls: 'fresh', dl: .12 + row * .03 };
       else out[id] = { ...place, o: .42 };
     });
@@ -102,7 +100,9 @@ export const layouts = {
     ['source', 'content', 'alignment'].forEach(st => ofStep(st).forEach((id, j) => {
       out[id] = { x: COLX[COL[st]] + 14, y: 410 + j * 54, o: 1, dl: .05 + j * .045 + COL[st] * .05 };
     }));
-    ofStep('policy').filter(id => !EXTRA_RULES.has(id)).forEach((id, j) => { out[id] = { x: 520 + j * 330, y: 970, o: 1, dl: .3 }; });
+    // One row of all seven marking rules. x is the unscaled top-left. Scale keeps the band above the source line.
+    const ruleX = [120, 326, 556, 738, 968, 1206, 1436];
+    MARKING_RULES.forEach((id, j) => { out[id] = { x: ruleX[j], y: 956, s: .8, o: 1, dl: .28 + j * .02 }; });
     return out;
   },
 
@@ -144,7 +144,6 @@ export const layouts = {
   handoff() {
     const out = {};
     CHIPS.forEach(({ id }, k) => {
-      if (EXTRA_RULES.has(id)) return;
       const dl = k * .025;
       out[id] = { x: 1330 + rnd(id, 'hx') * 90, y: 520 + rnd(id, 'hy') * 80, s: .2, o: 0, dl, odl: dl + .55 };
     });
