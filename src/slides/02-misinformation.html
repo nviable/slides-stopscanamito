@@ -4,36 +4,38 @@
   <div data-out="1">
     <article class="post" style="left:100px">
       <header><span class="av"></span><span class="who"><b></b><b></b></span></header>
-      <div class="img flood" role="img" aria-label="Illustration of a flooded street"></div>
+      <div class="img"><img src="media/misinfo/flood.jpg" alt="Illustration of a flooded street"></div>
       <p>Downtown is underwater right now. Share before they delete it.</p>
       <span class="tag" style="background:var(--stop-tint)"><span class="dot" style="background:var(--stop)"></span>Synthetic image, false claim</span>
     </article>
     <article class="post" style="left:700px">
       <header><span class="av"></span><span class="who"><b></b><b></b></span></header>
-      <div class="img crowd" role="img" aria-label="Illustration of a crowd"></div>
+      <div class="img"><img src="media/misinfo/crowd.jpg" alt="Illustration of a crowd"></div>
       <p>Today's march in the capital. Thousands turned out.</p>
       <span class="tag" style="background:var(--stop-tint)"><span class="dot" style="background:var(--stop)"></span>Real photo, false caption</span>
     </article>
     <article class="post" style="left:1300px">
       <header><span class="av"></span><span class="who"><b></b><b></b></span></header>
-      <div class="img crowd" role="img" aria-label="Illustration of a crowd stamped AI"><span class="stamp">AI FAKE</span></div>
+      <div class="img"><img src="media/misinfo/crowd.jpg" alt="Illustration of a crowd stamped AI"><span class="stamp">AI FAKE</span></div>
       <p>This crowd never happened. Look closer.</p>
       <span class="tag" style="background:var(--stop-tint)"><span class="dot" style="background:var(--stop)"></span>Real photo, called fake</span>
     </article>
     <p class="small abs" style="left:100px;top:960px">Illustrative posts.</p>
   </div>
   <div class="spec" data-in="1">
-    <span class="q">Real or fake?</span>
-    <div class="bar"><span class="mk" aria-hidden="true"></span></div>
-    <div class="ticks">
-      <div><code>digitalCapture</code><span>Captured by a camera</span></div>
-      <div><code>computational&#8203;Capture</code><span>Processed by the phone at capture</span></div>
-      <div><code>humanEdits</code><span>Touched up by a person</span></div>
-      <div><code>algorithmically&#8203;Enhanced</code><span>Enhanced by AI</span></div>
-      <div><code>compositeWithTrained&#8203;AlgorithmicMedia</code><span>AI inpainting in a real photo</span></div>
-      <div><code>trainedAlgorithmic&#8203;Media</code><span>Fully generated</span></div>
+    <div class="spec-head">
+      <span class="q">Real or fake?</span>
+      <p>Six of the 17 IPTC Digital Source Type terms. What is claimed about an image matters as much as where it sits on this scale.</p>
     </div>
-    <p class="small" style="margin-top:22px">Six of the 17 IPTC Digital Source Type terms. What is claimed about an image matters as much as where it sits on this scale.</p>
+    <div class="bar" aria-hidden="true"><span class="mk"></span></div>
+    <ol class="ticks">
+      <li style="--i:0"><b class="n">01</b><code>digital<wbr>Capture</code><span>Captured by a camera</span><div class="meter" aria-hidden="true"><i></i></div></li>
+      <li style="--i:1"><b class="n">02</b><code>computational<wbr>Capture</code><span>Processed by the phone at capture</span><div class="meter" aria-hidden="true"><i></i></div></li>
+      <li style="--i:2"><b class="n">03</b><code>human<wbr>Edits</code><span>Touched up by a person</span><div class="meter" aria-hidden="true"><i></i></div></li>
+      <li style="--i:3"><b class="n">04</b><code>algorithmically<wbr>Enhanced</code><span>Enhanced by AI</span><div class="meter" aria-hidden="true"><i></i></div></li>
+      <li style="--i:4"><b class="n">05</b><code>composite<wbr>With<wbr>Trained<wbr>Algorithmic<wbr>Media</code><span>AI inpainting in a real photo</span><div class="meter" aria-hidden="true"><i></i></div></li>
+      <li style="--i:5"><b class="n">06</b><code>trained<wbr>Algorithmic<wbr>Media</code><span>Fully generated</span><div class="meter" aria-hidden="true"><i></i></div></li>
+    </ol>
   </div>
   <div class="callouts" data-in="2">
     <div class="card"><span class="h3">Most people are guessing</span><p class="small" style="color:var(--ink)">Across 3,002 people in the US, Germany and China, most could not reliably tell AI-generated media from real, and AI media was rated more human-like.</p><span class="cite">Frank et al., IEEE S&amp;P 2024</span></div>
@@ -43,7 +45,7 @@
   <p class="src">Sources. <a href="https://cv.iptc.org/newscodes/digitalsourcetype/" target="_blank" rel="noopener">IPTC Digital Source Type</a> · <a href="https://arxiv.org/abs/2312.05976" target="_blank" rel="noopener">Frank et al., IEEE S&amp;P 2024</a> · <a href="https://www.cambridge.org/core/journals/american-political-science-review/article/liars-dividend-can-politicians-claim-misinformation-to-evade-accountability/687FEE54DBD7ED0C96D72B26606AA073" target="_blank" rel="noopener">Schiff, Schiff and Bueno, APSR 2025</a> · <a href="https://doi.org/10.15779/Z38RV0D15J" target="_blank" rel="noopener">Chesney and Citron, California Law Review 2019</a> · <a href="https://arxiv.org/abs/2405.11697" target="_blank" rel="noopener">Dufour et al., 2024</a></p>
   <aside class="notes"><ul>
     <li>Beat 1. Three harms. A synthetic image with a false claim, a real photo under a false caption, a real photo called fake.</li>
-    <li>Beat 2. Real or fake no longer has two answers. Most phone photos are computational captures before anyone edits them. These are the room's own terms.</li>
+    <li>Beat 2. Real or fake no longer has two answers. The marker runs the whole scale, then rests on computational capture. Most phone photos are already there, before anyone edits them. These are the room's own terms. The next beat lifts the scale to make room for the studies.</li>
     <li>Beat 3. People can't sort this by eye. Fakes also make real evidence deniable, the liar's dividend (Chesney and Citron 2019). Marcus's case later is exactly this pattern.</li>
   </ul></aside>
 </section>
