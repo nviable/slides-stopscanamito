@@ -12,7 +12,7 @@
 .post p{font:700 27px/1.3 var(--f-body);margin:20px 24px 16px;color:var(--ink)}
 .post .tag{margin:0 24px 24px}
 .stamp{position:absolute;right:20px;top:20px;z-index:1;background:var(--stop);color:var(--white);font:700 26px/1 var(--f-display);padding:10px 16px;border-radius:12px;transform:rotate(-6deg)}
-.spec{position:absolute;left:100px;right:100px;top:236px;bottom:88px;display:flex;flex-direction:column;gap:22px}
+.spec{position:absolute;left:100px;right:100px;top:236px;bottom:88px;display:flex;flex-direction:column;gap:22px;overflow:hidden}
 .slide .spec{transition:opacity .45s var(--ease) .3s,transform .45s var(--ease) .3s,bottom .5s var(--ease)}
 .slide[data-id="misinfo"] > [data-out].gone{transition:opacity .24s var(--ease),transform .24s var(--ease),visibility 0s linear .24s}
 .slide[data-beat="2"] .spec{bottom:420px}
@@ -48,6 +48,7 @@
 @keyframes meter-in{to{transform:scaleY(1)}}
 .slide[data-beat="2"] .ticks .meter{flex:0 0 0px;min-height:0;margin:0;opacity:0}
 .callouts{position:absolute;left:100px;right:100px;top:680px;display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.slide[data-id="misinfo"] .callouts{transition:opacity .45s var(--ease) .34s,transform .45s var(--ease) .34s}
 .callouts .card{padding:30px 32px;display:flex;flex-direction:column;gap:14px}
 .callouts .cite{font:600 18px/1.3 var(--f-display);letter-spacing:.03em;text-transform:uppercase;color:var(--ink-2)}
 
