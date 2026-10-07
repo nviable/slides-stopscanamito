@@ -106,11 +106,12 @@ export const layouts = {
     return out;
   },
 
-  // Asks, opening. Beat 1 brings four provenance chips back out of Amito.
+  // Asks, opening. Beat 1 brings four provenance chips back out of Amito, in two columns,
+  // each above its 'Does well' and 'Leaves open' lines.
   asks1(b) {
     const out = {};
     if (b >= 1) ['capture', 'c2pa', 'iptcvp', 'watermark'].forEach((id, k) => {
-      out[id] = { x: 100, y: 655 + k * 86, o: 1, cls: 'lit', dl: .1 + k * .08 };
+      out[id] = { x: 100 + (k % 2) * 880, y: 672 + Math.floor(k / 2) * 170, o: 1, cls: 'lit', dl: .1 + k * .08 };
     });
     return out;
   }

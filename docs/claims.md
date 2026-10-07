@@ -21,6 +21,15 @@ Every factual claim on a slide comes from this file. The wordings were verified 
 | The C2PA Conformance Program lists validator products. Conformance is a separate process, so the ask to this room is a pilot with members | Speaker notes, Four asks | [C2PA Conformance Program v0.2](https://github.com/c2pa-org/conformance-public/blob/main/docs/v0.2/C2PA%20Conformance%20Program.md) |
 | Validators accepting revoked certificates and disagreeing with each other. Preprint, held in reserve for questions | Not on a slide | [Golaszewski et al., ePrint 2026/804](https://eprint.iacr.org/2026/804) |
 
+### What each piece does well (asks opening, beat 2)
+
+| Statement on the slide | Piece | Source |
+| --- | --- | --- |
+| Ties an image to the device that captured it | Capture signing | [Google](https://blog.google/security/pixel-android-trusted-images-c2pa-content-credentials/) |
+| Lets anyone check who signed a file and what changed | C2PA validator | [C2PA 2.4](https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html) |
+| Confirms which news organisation signed the content | IPTC publisher list | [IPTC](https://iptc.org/news/iptc-c2pa-verified-news-publishers/) |
+| Can still flag AI output when metadata is stripped | Watermark check | [NIST AI 100-4](https://www.nist.gov/publications/reducing-risks-posed-synthetic-content-overview-technical-approaches-digital-content) |
+
 Wordings to avoid. "Camera makers are backing out" (only Nikon, and it is a suspension). "Pixel 10 was broken" (it was Pixel 8a and 9a, and no key was extracted). "Apple's C2PA credentials" (Reference Image is not C2PA). "IPTC or JPEG Trust certify verifiers" (neither does).
 
 ## People and media
