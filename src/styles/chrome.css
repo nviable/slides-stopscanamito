@@ -17,8 +17,9 @@
 
 @media (prefers-reduced-motion:reduce){
   .chip,.slide,.slide [data-in],.slide [data-out],.slide [data-only],.bar .mk,.spec,.spec .q::after,.ticks .n,.ticks li{transition-duration:.01s!important;transition-delay:0s!important}
-  .float,.glow,.slide.on .rise,.slide.on .pstat,.slide.on .pstat .hnum,.slide.on .pstat .sbar,.slide.on .pstat .lg,.spec.in .bar,.spec.in .bar .mk,.spec.in .ticks li,.spec.in .ticks li::after,.spec.in .ticks .meter i{animation:none!important}
-  .slide.on .pstat,.slide.on .pstat .hnum,.slide.on .pstat .sbar,.slide.on .pstat .lg{opacity:1;transform:none}
+  .float,.glow,.slide.on .rise,.slide.on .pstat,.slide.on .sbar .seg,.spec.in .bar,.spec.in .bar .mk,.spec.in .ticks li,.spec.in .ticks li::after,.spec.in .ticks .meter i{animation:none!important}
+  .slide.on .pstat{opacity:1;transform:none}
+  .sbar .seg{width:var(--w);min-width:6px}
   .spec.in .bar{transform:none}
   .spec.in .bar .mk{left:calc(25% - 28px)}
   .spec.in .ticks li{opacity:1;transform:none}

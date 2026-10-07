@@ -65,20 +65,21 @@ export const layouts = {
     return out;
   },
 
-  // "Literacy help exists". Beat 1 scatters every chip already on stage, including
-  // all seven marking rules. Practice waits unseen until beat 2. Beat 2 keeps the
-  // method pile above and the marking rules in a block below it.
+  // "Literacy help exists". Beat 1 shows the whole pile, including detection and
+  // everyday practice, spaced so none cover another. Detection sits in the first
+  // rows. Beat 2 marks practice and moves the marking rules below the methods.
   frameworks(b) {
     const out = {};
     const rules = MARKING_RULES;
     const ruleSet = new Set(rules);
     if (!b) {
-      const ids = CHIPS.map(c => c.id).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
-      ids.forEach((id, k) => {
-        const col = k % 2, row = Math.floor(k / 2);
-        const x = 1160 + col * 350 + rnd(id, 'fx') * 16, y = 332 + row * 42 + rnd(id, 'fy') * 4;
-        if (byId[id].sector === 'practice') out[id] = { x, y: y + 24, o: 0 };
-        else out[id] = { x, y, r: (rnd(id, 'r') - .5) * 6, o: .42, dl: row * .02 };
+      const shown = [...CHIPS].sort((a, c) => {
+        const ad = a.family === 'det' ? 0 : 1, cd = c.family === 'det' ? 0 : 1;
+        return ad - cd || rnd(a.id, 's') - rnd(c.id, 's');
+      });
+      shown.forEach((c, k) => {
+        const col = k % 3, row = Math.floor(k / 3);
+        out[c.id] = { x: 1104 + col * 258, y: 328 + row * 56, r: (rnd(c.id, 'r') - .5) * 2, s: .82, o: 1, dl: row * .012 };
       });
       return out;
     }
