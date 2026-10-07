@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Assets-only Worker. A committed config keeps `wrangler deploy` from
+  // starting the first-time setup wizard, which rewrites vite.config.js
+  // and adds @cloudflare/vite-plugin. This deck does not need that plugin.
+  // Routes live in the URL hash on a single index.html. Files that exist,
+  // including media/ and build/, are served as assets. Any other path
+  // falls back to index.html.
+  "name": "slides-stopscanamito",
+  "compatibility_date": "2026-10-07",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
