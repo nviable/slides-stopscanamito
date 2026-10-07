@@ -16,8 +16,10 @@ import { CHIPS, byId, ofSector, ofStep, ofFamily, rnd } from './chips.js';
 export const COL = { stop: 0, source: 1, content: 2, alignment: 3, reflect: 4 };
 export const COLX = [100, 448, 796, 1144, 1492]; // left edge of each STOP&SCAN column, width 328
 
-// These four rules are placed on the frameworks slide only. Other layouts keep the
-// original three so their policy rows do not overflow the stage.
+// Government rules for marking and labelling. All seven sit on Many hands (the
+// government beat), Two families, and Frameworks. Later layouts keep the original
+// three so a single policy row does not overflow the stage.
+const MARKING_RULES = ['euai', 'eucop', 'nist', 'india', 'caai', 'krfw', 'sgel'];
 const EXTRA_RULES = new Set(['india', 'caai', 'krfw', 'sgel']);
 
 export const layouts = {
@@ -25,15 +27,25 @@ export const layouts = {
   misinfo: () => ({ __drop: true }),
   pilot: () => ({ __drop: true }),
 
-  // "Many hands are building tools". One sector arrives per beat.
+  // "Many hands are building tools". One sector arrives per beat. Beat 3 is government,
+  // and the seven marking rules stack in that column.
   build(b) {
     const out = { __drop: true };
     const zoneX = [100, 560, 1020, 1480];
-    ['research', 'industry', 'standards', 'gov'].forEach((sector, si) => ofSector(sector).filter(id => !EXTRA_RULES.has(id)).forEach((id, j) => {
-      const x = zoneX[si] + (j % 2) * 46 + rnd(id, 'x') * 36;
-      const y = 400 + j * 88 + rnd(id, 'y') * 18;
-      if (si <= b) out[id] = { x, y, r: (rnd(id, 'r') - .5) * 8, o: 1, dl: si === b ? j * .08 : 0 };
-    }));
+    ['research', 'industry', 'standards', 'gov'].forEach((sector, si) => {
+      if (si > b) return;
+      if (sector === 'gov') {
+        MARKING_RULES.forEach((id, j) => {
+          out[id] = { x: 1472, y: 388 + j * 62, r: (rnd(id, 'r') - .5) * 4, o: 1, dl: j * .06 };
+        });
+        return;
+      }
+      ofSector(sector).forEach((id, j) => {
+        const x = zoneX[si] + (j % 2) * 46 + rnd(id, 'x') * 36;
+        const y = 400 + j * 88 + rnd(id, 'y') * 18;
+        out[id] = { x, y, r: (rnd(id, 'r') - .5) * 8, o: 1, dl: si === b ? j * .08 : 0 };
+      });
+    });
     return out;
   },
 
@@ -42,15 +54,20 @@ export const layouts = {
     const out = {}, o = b ? .28 : 1;
     ofFamily('det').forEach((id, j) => { out[id] = { x: 110 + (j % 2) * 340, y: 470 + Math.floor(j / 2) * 90, r: (rnd(id, 'r') - .5) * 3, o, dl: j * .05 }; });
     ofFamily('prov').forEach((id, j) => { out[id] = { x: 1010 + (j % 2) * 380, y: 470 + Math.floor(j / 2) * 80, r: (rnd(id, 'r') - .5) * 3, o, dl: j * .05 }; });
-    ofFamily('policy').filter(id => !EXTRA_RULES.has(id)).forEach((id, j) => { out[id] = { x: 420 + j * 330, y: 908, o }; });
+    // Two rows so all seven marking rules stay above the source line.
+    MARKING_RULES.forEach((id, j) => {
+      const row = j < 4 ? 0 : 1;
+      const col = row ? j - 4 : j;
+      out[id] = { x: 100 + col * 450, y: 908 + row * 54, r: 0, o, dl: j * .04 };
+    });
     return out;
   },
 
-  // "Literacy help exists". The pile sits on the right. Beat 1 lifts the rules into a
-  // block across that side and tucks the rest of the pile underneath.
+  // "Literacy help exists". The pile sits on the right. Beat 1 lifts the government
+  // marking rules into a block across that side and tucks the rest of the pile underneath.
   frameworks(b) {
     const out = {};
-    const rules = ['euai', 'eucop', 'nist', 'india', 'caai', 'krfw', 'sgel'];
+    const rules = MARKING_RULES;
     const ruleSet = new Set(rules);
     const ruleAt = j => ({ x: 1110 + (j % 2) * 380, y: 348 + Math.floor(j / 2) * 64, r: 0 });
     if (!b) {
@@ -109,7 +126,8 @@ export const layouts = {
     return out;
   },
 
-  // Distribution. The sorted pile shrinks into a quiet strip along the top so Amito can take the stage.
+  // Distribution. Four beats reveal one card at a time. The sorted pile stays a quiet
+  // strip along the top on every beat so the cards and Amito have the stage.
   dist() {
     const out = {};
     ['source', 'content', 'alignment'].forEach(st => ofStep(st).forEach((id, j) => {
