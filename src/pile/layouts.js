@@ -16,6 +16,10 @@ import { CHIPS, byId, ofSector, ofStep, ofFamily, rnd } from './chips.js';
 export const COL = { stop: 0, source: 1, content: 2, alignment: 3, reflect: 4 };
 export const COLX = [100, 448, 796, 1144, 1492]; // left edge of each STOP&SCAN column, width 328
 
+// These four rules are placed on the frameworks slide only. Other layouts keep the
+// original three so their policy rows do not overflow the stage.
+const EXTRA_RULES = new Set(['india', 'caai', 'krfw', 'sgel']);
+
 export const layouts = {
   title: () => ({ __drop: true }),
   misinfo: () => ({ __drop: true }),
@@ -25,7 +29,7 @@ export const layouts = {
   build(b) {
     const out = { __drop: true };
     const zoneX = [100, 560, 1020, 1480];
-    ['research', 'industry', 'standards', 'gov'].forEach((sector, si) => ofSector(sector).forEach((id, j) => {
+    ['research', 'industry', 'standards', 'gov'].forEach((sector, si) => ofSector(sector).filter(id => !EXTRA_RULES.has(id)).forEach((id, j) => {
       const x = zoneX[si] + (j % 2) * 46 + rnd(id, 'x') * 36;
       const y = 400 + j * 88 + rnd(id, 'y') * 18;
       if (si <= b) out[id] = { x, y, r: (rnd(id, 'r') - .5) * 8, o: 1, dl: si === b ? j * .08 : 0 };
@@ -38,19 +42,35 @@ export const layouts = {
     const out = {}, o = b ? .28 : 1;
     ofFamily('det').forEach((id, j) => { out[id] = { x: 110 + (j % 2) * 340, y: 470 + Math.floor(j / 2) * 90, r: (rnd(id, 'r') - .5) * 3, o, dl: j * .05 }; });
     ofFamily('prov').forEach((id, j) => { out[id] = { x: 1010 + (j % 2) * 380, y: 470 + Math.floor(j / 2) * 80, r: (rnd(id, 'r') - .5) * 3, o, dl: j * .05 }; });
-    ofFamily('policy').forEach((id, j) => { out[id] = { x: 420 + j * 330, y: 908, o }; });
+    ofFamily('policy').filter(id => !EXTRA_RULES.has(id)).forEach((id, j) => { out[id] = { x: 420 + j * 330, y: 908, o }; });
     return out;
   },
 
-  // "Literacy help exists". The pile sits on the right. Beat 1 adds everyday practice.
+  // "Literacy help exists". The pile sits on the right. Beat 1 lifts the rules into a
+  // block across that side and tucks the rest of the pile underneath.
   frameworks(b) {
     const out = {};
-    const ids = CHIPS.map(c => c.id).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
-    ids.forEach((id, k) => {
-      const col = k % 2, row = Math.floor(k / 2);
-      const x = 1180 + col * 330 + rnd(id, 'fx') * 24, y = 376 + row * 50 + rnd(id, 'fy') * 6;
-      if (byId[id].sector === 'practice') out[id] = b ? { x, y, o: 1, cls: 'fresh', dl: .1 + row * .03 } : { x, y: y + 40, o: 0 };
-      else out[id] = { x, y, r: (rnd(id, 'r') - .5) * 6, o: .42, dl: row * .02 };
+    const rules = ['euai', 'eucop', 'nist', 'india', 'caai', 'krfw', 'sgel'];
+    const ruleSet = new Set(rules);
+    const ruleAt = j => ({ x: 1110 + (j % 2) * 380, y: 348 + Math.floor(j / 2) * 64, r: 0 });
+    if (!b) {
+      const ids = CHIPS.map(c => c.id).filter(id => !EXTRA_RULES.has(id)).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
+      ids.forEach((id, k) => {
+        const col = k % 2, row = Math.floor(k / 2);
+        const x = 1180 + col * 330 + rnd(id, 'fx') * 24, y = 376 + row * 50 + rnd(id, 'fy') * 6;
+        if (byId[id].sector === 'practice') out[id] = { x, y: y + 40, o: 0 };
+        else out[id] = { x, y, r: (rnd(id, 'r') - .5) * 6, o: .42, dl: row * .02 };
+      });
+      rules.forEach((id, j) => { if (EXTRA_RULES.has(id)) out[id] = { ...ruleAt(j), o: 0 }; });
+      return out;
+    }
+    rules.forEach((id, j) => { out[id] = { ...ruleAt(j), o: 1, dl: j * .04 }; });
+    const rest = CHIPS.map(c => c.id).filter(id => !ruleSet.has(id)).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
+    rest.forEach((id, k) => {
+      const col = k % 3, row = Math.floor(k / 3);
+      const place = { x: 1110 + col * 245, y: 710 + row * 36, r: 0, s: .7, dl: .08 + row * .02 };
+      if (byId[id].sector === 'practice') out[id] = { ...place, o: 1, cls: 'fresh', dl: .12 + row * .03 };
+      else out[id] = { ...place, o: .42 };
     });
     return out;
   },
@@ -61,7 +81,7 @@ export const layouts = {
     ['source', 'content', 'alignment'].forEach(st => ofStep(st).forEach((id, j) => {
       out[id] = { x: COLX[COL[st]] + 14, y: 410 + j * 54, o: 1, dl: .05 + j * .045 + COL[st] * .05 };
     }));
-    ofStep('policy').forEach((id, j) => { out[id] = { x: 520 + j * 330, y: 970, o: 1, dl: .3 }; });
+    ofStep('policy').filter(id => !EXTRA_RULES.has(id)).forEach((id, j) => { out[id] = { x: 520 + j * 330, y: 970, o: 1, dl: .3 }; });
     return out;
   },
 
@@ -102,6 +122,7 @@ export const layouts = {
   handoff() {
     const out = {};
     CHIPS.forEach(({ id }, k) => {
+      if (EXTRA_RULES.has(id)) return;
       const dl = k * .025;
       out[id] = { x: 1330 + rnd(id, 'hx') * 90, y: 520 + rnd(id, 'hy') * 80, s: .2, o: 0, dl, odl: dl + .55 };
     });
