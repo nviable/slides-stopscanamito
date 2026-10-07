@@ -65,33 +65,35 @@ export const layouts = {
     return out;
   },
 
-  // Marcus's walkthrough. Chips light up under the step pill as he uses them.
+  // Marcus's walkthrough. Chips sit under the step pill as he uses them.
   // Beat 0 encounter, 1 Stop, 2 Source, 3 Content, 4 Alignment, 5 Now Reflect.
+  // `step` matches the current step pill (filled). `stepdone` matches a past pill (outline).
+  // `empty` and `weak` stay dashed. A failed method must not look successful.
   marcus(b) {
     const out = {};
     const plan = {
-      2: [['earliest', 'lit'], ['revimg', 'lit'], ['c2pa', 'empty']],
-      3: [['zoom', 'lit'], ['imgdet', 'lit']],
-      4: [['newsarch', 'lit'], ['indvid', 'lit']]
+      2: [['earliest', 'step'], ['revimg', 'step'], ['c2pa', 'empty']],
+      3: [['zoom', 'step'], ['imgdet', 'step']],
+      4: [['newsarch', 'step'], ['indvid', 'step']]
     };
     const state = {};
-    for (let k = 2; k <= b; k++) (plan[k] || []).forEach(([id, cls]) => { state[id] = k === b ? cls : (cls === 'lit' ? 'done' : cls); });
+    for (let k = 2; k <= b; k++) (plan[k] || []).forEach(([id, cls]) => { state[id] = k === b ? cls : (cls === 'step' ? 'stepdone' : cls); });
     if (b >= 4) state.imgdet = 'weak'; // two detectors that disagree make one weak check
     const stack = {};
     Object.keys(state).forEach(id => {
       const col = COL[byId[id].step], n = stack[col] || 0;
       stack[col] = n + 1;
-      out[id] = { x: COLX[col] + 8, y: 248 + n * 52, o: state[id] === 'done' ? .75 : 1, cls: state[id], dl: n * .08 };
+      out[id] = { x: COLX[col] + 8, y: 300 + n * 48, o: 1, cls: state[id], dl: n * .08 };
     });
     CHIPS.forEach(({ id, step }) => { if (!out[id] && step in COL) out[id] = { x: COLX[COL[step]] + 110, y: 190, s: .3, o: 0 }; });
     return out;
   },
 
-  // "Built for repetition". The sorted pile shrinks into a strip under the step pills.
+  // Distribution. The sorted pile shrinks into a quiet strip along the top so Amito can take the stage.
   dist() {
     const out = {};
     ['source', 'content', 'alignment'].forEach(st => ofStep(st).forEach((id, j) => {
-      out[id] = { x: COLX[COL[st]] + 10 + (j % 2) * 158, y: 108 + Math.floor(j / 2) * 24, s: .45, o: .9, dl: j * .02 };
+      out[id] = { x: COLX[COL[st]] + (j % 3) * 104, y: 14 + Math.floor(j / 3) * 22, s: .36, o: .7, dl: j * .02 };
     }));
     return out;
   },

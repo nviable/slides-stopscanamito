@@ -93,7 +93,7 @@
 .recreation{font:600 16px/1.3 var(--f-display);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);padding:12px 22px;background:var(--cream)}
 .zoom{position:absolute;border:4px solid var(--content);border-radius:9999px}
 .shot{margin:0;background:var(--cream);border-radius:24px;display:grid;place-items:center;padding:12px;box-sizing:border-box}
-.shot img{height:572px;width:auto;max-width:100%;object-fit:contain;border-radius:12px;box-shadow:var(--shadow-card)}
+.shot img{height:100%;width:100%;object-fit:contain;border-radius:12px;box-shadow:var(--shadow-card)}
 .inset{position:absolute;margin:0;background:var(--white);border:3px solid var(--content);border-radius:16px;padding:8px;box-sizing:border-box;box-shadow:var(--shadow-card);display:flex;flex-direction:column;gap:6px}
 .inset img{display:block;border-radius:10px}
 .inset figcaption{font:700 19px/1.25 var(--f-display);color:var(--ink);padding:0 4px 2px}
@@ -102,6 +102,37 @@
 .ev b{font:700 27px/1.2 var(--f-display)}
 .ev span{font:400 22px/1.35 var(--f-body);color:var(--ink-2)}
 .ev.muted{background:var(--cream);box-shadow:none;border:2px dashed var(--outline-v)}
+.ev.scan{display:grid;grid-template-columns:52px 1fr;column-gap:14px;row-gap:4px;align-content:start;padding:18px 18px 16px}
+.ev.scan .ev-ic{grid-row:1 / span 3;width:52px;height:52px;border-radius:16px;background:var(--white);display:grid;place-items:center;color:var(--ink)}
+.ev.scan .ev-ic svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ev.scan b{font:700 22px/1.15 var(--f-display);color:var(--ink)}
+.ev.scan .glance{font:700 30px/1.05 var(--f-display);color:var(--ink)}
+.ev.scan .fine{font:400 18px/1.3 var(--f-body);color:var(--ink-2)}
+.ev.scan:not(.muted) .ev-ic{background:var(--cream)}
+.marcus-face{position:absolute;left:1696px;top:16px;width:188px;height:168px;pointer-events:none}
+.marcus-face img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.trust{position:absolute;display:flex;align-items:center;gap:8px;height:26px;font:700 15px/1 var(--f-display);letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.trust i{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;flex:none}
+.trust.down i{border-top:11px solid var(--stop)}
+.trust.up i{border-bottom:11px solid var(--content)}
+.trust.flat i{width:16px;height:4px;border:none;border-radius:999px;background:var(--outline)}
+.stepword.stop{color:var(--stop)}
+.stepword.reflect{color:var(--reflect)}
+.mental{background:var(--cream);border-radius:36px 36px 36px 14px}
+.quot{margin:0;padding:4px 4px 4px 28px;border-left:6px solid var(--outline-v)}
+.quot p{margin:0;font:italic 400 30px/1.35 var(--f-body);color:var(--ink)}
+.ok{width:72px;height:72px;border-radius:9999px;background:var(--primary);color:var(--white);display:inline-grid;place-items:center;flex:none}
+.ok svg{width:40px;height:40px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ok.sm{width:34px;height:34px}
+.ok.sm svg{width:18px;height:18px;stroke-width:3}
+.confirm{display:flex;align-items:center;gap:18px}
+.dist-copy{position:absolute;display:flex;flex-direction:column;gap:18px}
+.dist-copy .h1{font-size:60px}
+.dist-copy .body{font-size:30px}
+.need{margin-top:auto;background:var(--white);border:var(--hair);border-radius:24px;box-shadow:var(--shadow-card);padding:26px 30px;display:flex;flex-direction:column;gap:10px}
+.need b{font:700 18px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--primary)}
+.need p{margin:0;font:700 32px/1.25 var(--f-display);color:var(--ink)}
+.comic-cap{margin-top:10px}
 .state{background:var(--white);border:4px solid var(--content);border-radius:28px;box-shadow:var(--shadow-card);padding:34px 40px;display:flex;flex-direction:column;gap:16px}
 .state .big{font:700 84px/1 var(--f-display);color:var(--ink)}
 .claims{display:flex;flex-direction:column;gap:14px;margin:0;padding:0;list-style:none}
