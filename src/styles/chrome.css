@@ -17,11 +17,12 @@
 
 @media (prefers-reduced-motion:reduce){
   .chip,.slide,.slide [data-in],.slide [data-out],.slide [data-only],.bar .mk,.spec,.spec .q::after,.ticks .n,.ticks li{transition-duration:.01s!important;transition-delay:0s!important}
-  .float,.glow,.slide.on .rise,.spec.in .bar,.spec.in .bar .mk,.spec.in .ticks li,.spec.in .ticks li::after{animation:none!important}
+  .float,.glow,.slide.on .rise,.spec.in .bar,.spec.in .bar .mk,.spec.in .ticks li,.spec.in .ticks li::after,.spec.in .ticks .meter i{animation:none!important}
   .spec.in .bar{transform:none}
   .spec.in .bar .mk{left:calc(25% - 28px)}
   .spec.in .ticks li{opacity:1;transform:none}
   .spec.in .ticks li:nth-child(2){background:var(--primary-fixed)}
+  .spec.in .ticks .meter i{transform:scaleY(1)}
 }
 
 [hidden]{display:none!important}
