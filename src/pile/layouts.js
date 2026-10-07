@@ -68,7 +68,7 @@ export const layouts = {
     const rest = CHIPS.map(c => c.id).filter(id => !ruleSet.has(id)).sort((a, c) => rnd(a, 's') - rnd(c, 's'));
     rest.forEach((id, k) => {
       const col = k % 3, row = Math.floor(k / 3);
-      const place = { x: 1110 + col * 245, y: 688 + row * 42, r: 0, s: .74, dl: .08 + row * .02 };
+      const place = { x: 1110 + col * 245, y: 710 + row * 36, r: 0, s: .7, dl: .08 + row * .02 };
       if (byId[id].sector === 'practice') out[id] = { ...place, o: 1, cls: 'fresh', dl: .12 + row * .03 };
       else out[id] = { ...place, o: .42 };
     });
