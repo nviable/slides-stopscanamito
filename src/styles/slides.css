@@ -134,6 +134,12 @@ body[data-aud="iptc"] [data-aud="jpegtrust"],body[data-aud="jpegtrust"] [data-au
 .opengap b{font:600 17px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--primary)}
 .opengap p+p b{color:var(--ink-2)}
 
+/* close */
+.invite{padding:24px 30px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow-card)}
+.invite-tag{font:600 16px/1 var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--primary)}
+.invite b{font:700 34px/1.2 var(--f-display);color:var(--ink)}
+.invite p{margin:0;font:400 25px/1.4 var(--f-body);color:var(--ink);text-wrap:pretty}
+
 /* tech placeholders */
 .techbox{position:absolute;left:100px;right:100px;top:300px;bottom:110px;border:3px dashed var(--outline-v);border-radius:28px;background:var(--surface-low);padding:44px 52px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px}
 .techbox .label{color:var(--primary)}

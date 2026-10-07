@@ -18,7 +18,7 @@ Every factual claim on a slide comes from this file. The wordings were verified 
 | Photographing a synthetic image on a screen with a signing camera yields a valid signature | Asks opening | [Park et al., USENIX Security 2025](https://www.usenix.org/system/files/usenixsecurity25-park.pdf) |
 | A validly signed manifest can omit the AI-origin assertion while the watermark says synthetic | Asks opening, Concern map | [Nemecek et al., CVPR Workshops 2026](https://arxiv.org/abs/2603.02378) |
 | The IPTC Verified News Publishers List makes no judgement on editorial position | Concern map | [IPTC](https://iptc.org/news/iptc-c2pa-verified-news-publishers/) |
-| The C2PA Conformance Program lists validator products. Conformance is a separate process, so the ask to this room is a pilot with members | Speaker notes, Four asks | [C2PA Conformance Program v0.2](https://github.com/c2pa-org/conformance-public/blob/main/docs/v0.2/C2PA%20Conformance%20Program.md) |
+| The C2PA Conformance Program lists validator products. Conformance is a separate process, so the ask to this room is a platform to test and improve Amito | Speaker notes, Four asks | [C2PA Conformance Program v0.2](https://github.com/c2pa-org/conformance-public/blob/main/docs/v0.2/C2PA%20Conformance%20Program.md) |
 | Validators accepting revoked certificates and disagreeing with each other. Preprint, held in reserve for questions | Not on a slide | [Golaszewski et al., ePrint 2026/804](https://eprint.iacr.org/2026/804) |
 
 ### What each piece does well (asks opening, beat 2)
