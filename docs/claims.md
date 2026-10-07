@@ -47,7 +47,13 @@ Wordings to avoid. "Camera makers are backing out" (only Nikon, and it is a susp
 | Unlabelled images read as slightly more authentic once labels exist | Concern map | [Pawelczyk et al., ICWSM 2026](https://ojs.aaai.org/index.php/ICWSM/article/view/42721) |
 | AI labels led to overreliance and to doubt of true claims shown with labelled AI images | Concern map | [Höltervennhoff et al., CHI 2026](https://arxiv.org/abs/2505.22845) |
 | "AI-generated" labels are read as full automation | Concern map | [Altay and Gilardi, PNAS Nexus 2024](https://academic.oup.com/pnasnexus/article/3/10/pgae403/7795946) |
-| Spaced reinforcement restores decayed inoculation effects | Distribution | Maertens et al., Nature Communications 2025 |
+| Spaced reinforcement restores decayed inoculation effects | Distribution | [Maertens et al., Nature Communications 2025](https://www.nature.com/articles/s41467-025-57205-x) |
+| stopandscan.org holds the information free and open. Amito appears across the comics, the chatbot, and the site. STOP&SCAN stays the habit. Amito is the companion | Distribution | [stopandscan.org](https://stopandscan.org/), [Meet Amito](https://stopandscan.org/amito/) |
+| Lessons use scenario-based practice, including video. Comics show the reasoning being done | Distribution | [stopandscan.org](https://stopandscan.org/) learn, practice, and comics. The celebrity investment case is a video lesson |
+| Scenario-based role-play has been used to study how journalists use AI verification tools for video | Distribution | [Sohrawardi, Wu, Hickerson and Wright, CHI 2024](https://doi.org/10.1145/3613904.3641973), Dungeons & Deepfakes |
+| Education kits are for different ages | Distribution | Programme line for this talk. The public site lists one comic, a guided lesson, and practice cases. It does not yet list separate age-group kits |
+| We are drafting a publication of the framework with the expert panel, using Delphi | Distribution | Programme statement for this talk. The expert panel is the fielded study in the analyst companion, 5 Oct 2026. The companion does not name Delphi |
+| We have a partnership with AMAS under the ITU, across our respective institutions | Distribution | ITU AI for Good AMAS Young Researcher Associate Programme, as described in `docs/design-system.md` |
 
 ## Our own data
 
@@ -59,3 +65,18 @@ Wordings to avoid. "Camera makers are backing out" (only Nikon, and it is a susp
 | 12 of 14 experts agree SIFT is still useful for AI-generated content (R9). 0 of 14 agree it gives enough guidance when a trustworthy source publishes a fabrication (R11). 1 of 14 when real content is wrongly called AI (R12) | Frameworks | Expert panel, preliminary, export of 5 Oct 2026 |
 
 Open check. The pilot footnote says n = 46, but every pilot percentage is a multiple of 1/32. Confirm the per-question n before presenting.
+
+## Marcus's crowd photo
+
+Directions follow the analyst companion of 5 Oct 2026. Supported means the check supports what the photograph represents. The companion gives no detector percentage, so the slide says Near even and does not state one.
+
+| Claim as worded on the slide | Slide | Source |
+| --- | --- | --- |
+| He takes a mental note of where he starts. He does not write it down | Marcus | Presentation choice for this talk. The analyst companion says he writes that down first |
+| The C2PA manifest does not exist. That absence is not evidence either way | Marcus | Slide credential check. The companion says the source trail runs out and missing evidence is not evidence either way. It does not use the words C2PA manifest |
+| The halo surrounds every person evenly. Phone screens show the same aircraft and crowd. Detector A says likely human-made, high confidence. These support the photograph | Marcus | Analyst companion, 5 Oct 2026 |
+| Wire photos and local video support the photograph. They are independent of the poster and of each other | Marcus | Analyst companion |
+| The campaign says a staff member took it and it is not AI. That supports the photograph and contradicts the fake claim. It is not independent, so it is not useful | Marcus | Analyst companion. Direction Supported. The statement comes from an interested party |
+| Detector B is near even. It leans human-made and the direction is neither. It is a Content check that helps Alignment. Two detectors are one weak check | Marcus | Analyst companion. "Leans human-made, but close to a coin flip." Direction Neither. No percentage is given |
+| The evidence state is Confirmed. Rely on it and pass it on, with the correction. The photo is authentic and the AI allegation is false. The circulating copy was cropped and colour-pushed | Marcus | Analyst companion. Designed result Confirmed |
+| At Stop the photo seems fake. Source does not shift it. Content and Alignment make it seem more real | Marcus | Starting position in the companion, plus the direction column. Stop and Source actions are Neither. Content and the useful Alignment actions are Supported |
