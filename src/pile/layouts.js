@@ -54,11 +54,15 @@ export const layouts = {
     const out = {}, o = b ? .28 : 1;
     ofFamily('det').forEach((id, j) => { out[id] = { x: 110 + (j % 2) * 340, y: 470 + Math.floor(j / 2) * 90, r: (rnd(id, 'r') - .5) * 3, o, dl: j * .05 }; });
     ofFamily('prov').forEach((id, j) => { out[id] = { x: 1010 + (j % 2) * 380, y: 470 + Math.floor(j / 2) * 80, r: (rnd(id, 'r') - .5) * 3, o, dl: j * .05 }; });
-    // Two rows so all seven marking rules stay above the source line.
+    // One block under the label. Widths are the rendered chips, with a small gap,
+    // so the seven rules stay together and clear of the source line.
+    const rulePos = {
+      euai: [100, 896], eucop: [344, 896], nist: [614, 896], india: [826, 896],
+      caai: [100, 954], krfw: [374, 954], sgel: [642, 954]
+    };
     MARKING_RULES.forEach((id, j) => {
-      const row = j < 4 ? 0 : 1;
-      const col = row ? j - 4 : j;
-      out[id] = { x: 100 + col * 450, y: 908 + row * 54, r: 0, o, dl: j * .04 };
+      const [x, y] = rulePos[id];
+      out[id] = { x, y, r: 0, o, dl: j * .04 };
     });
     return out;
   },

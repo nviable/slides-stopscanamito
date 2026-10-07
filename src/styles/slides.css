@@ -143,7 +143,7 @@
 .claims li .dot{margin-top:11px}
 .copy-note{background:var(--cream);border:2px dashed var(--outline-v);border-radius:18px;padding:14px 18px;display:flex;flex-direction:column;gap:8px}
 .copy-note p{margin:0;font:400 24px/1.35 var(--f-body);color:var(--ink)}
-.dist-board{position:absolute;left:64px;top:112px;width:1048px;display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.dist-board{position:absolute;left:64px;top:120px;width:980px;display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
 .dist-board .blk dl{grid-template-columns:118px 1fr}
 .dist-board .blk dd{font-size:22px}
 
