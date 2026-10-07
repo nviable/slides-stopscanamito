@@ -13,6 +13,7 @@
     "pdf": "node scripts/export-pdf.mjs"
   },
   "devDependencies": {
-    "vite": "^8.3.3"
+    "vite": "^8.3.3",
+    "wrangler": "^4.148.0"
   }
 }
