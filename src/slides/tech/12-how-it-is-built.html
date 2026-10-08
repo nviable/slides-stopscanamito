@@ -1,6 +1,44 @@
-<section class="slide" data-id="tech" data-label="How the toolkit is built">
+<section class="slide" data-id="tech" data-label="How the toolkit is built" data-steps="3">
   <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">Amito toolkit · tech team</p>
   <h2 class="h1 abs" style="left:100px;top:152px">How the toolkit is built</h2>
-  <div class="techbox"><span class="label">Tech team content</span><p class="body">Structure of the tool. The methods it runs at each step and how results come back to the person. The video forensics ontology is not shown.</p></div>
-  <aside class="notes"><ul><li>Placeholder for the tech group.</li></ul></aside>
+
+  <div class="abs card" style="left:100px;top:380px;width:360px;height:470px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+    <span class="label" style="color:var(--primary)">Where people talk to it</span>
+    <b class="h3" style="font-size:30px">A chat</b>
+    <p class="small" style="color:var(--ink)">A web chat, Telegram and Discord share one agent.</p>
+    <div style="margin-top:12px;display:flex;flex-direction:column;gap:12px">
+      <div style="border:var(--hair);border-radius:16px;padding:14px 16px;background:var(--surface-low)"><b style="font:700 22px/1.2 var(--f-display)">Upload an image</b></div>
+      <div style="border:3px solid var(--primary);border-radius:16px;padding:14px 16px;background:var(--white)"><b style="font:700 22px/1.2 var(--f-display)">Or paste an Instagram or X post link</b><p class="small" style="font-size:19px;margin-top:6px">The photo, its caption and the account come together</p></div>
+    </div>
+  </div>
+
+  <div class="abs card" data-in="1" style="left:500px;top:380px;width:400px;height:470px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+    <span class="label" style="color:var(--primary)">The agent</span>
+    <b class="h3" style="font-size:30px">Picks the next check</b>
+    <p class="small" style="color:var(--ink)">A language model reads the conversation, runs one check, explains it, and proposes the next one. The person can ask for a check by name.</p>
+    <p class="small" style="color:var(--ink)">The model is a choice. OpenAI, Claude, or a local model that runs on the organisation's own computer.</p>
+  </div>
+
+  <div class="abs card" data-in="1" style="left:940px;top:380px;width:460px;height:470px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+    <span class="label" style="color:var(--primary)">The detection service</span>
+    <div><b style="font:700 25px/1.2 var(--f-display)">Provenance</b><p class="small" style="font-size:20px">Content Credentials, AI labels in the metadata, SynthID, reverse image search</p></div>
+    <div><b style="font:700 25px/1.2 var(--f-display)">Pixels</b><p class="small" style="font-size:20px">Five AI-image detectors combined into one calibrated score, and a face check</p></div>
+    <div><b style="font:700 25px/1.2 var(--f-display)">Context</b><p class="small" style="font-size:20px">Camera metadata and GPS, the place from scenery and landmarks, the weather</p></div>
+    <div><b style="font:700 25px/1.2 var(--f-display)">The post</b><p class="small" style="font-size:20px">What the caption says, and who posted it</p></div>
+  </div>
+
+  <div class="abs card" data-in="2" style="left:1440px;top:380px;width:380px;height:470px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;border:3px solid var(--primary)">
+    <span class="label" style="color:var(--primary)">Back to the person</span>
+    <div><b style="font:700 25px/1.2 var(--f-display)">Each check, explained</b><p class="small" style="font-size:20px">A card with what ran, why, and what it found</p></div>
+    <div><b style="font:700 25px/1.2 var(--f-display)">An evidence board</b><p class="small" style="font-size:20px">What points to fake, to authentic, and what is good to know, each with a tip for next time</p></div>
+    <div><b style="font:700 25px/1.2 var(--f-display)">A JPEG Trust report</b><p class="small" style="font-size:20px">When the person asks, with the reasons behind it</p></div>
+  </div>
+
+  <p class="src">Source. Amito toolkit, Oct 2026. JPEG Trust is <a href="https://www.iso.org/standard/91405.html" target="_blank">ISO/IEC 21617-1:2026</a>.</p>
+  <aside class="notes"><ul>
+    <li>Three parts. People talk to Amito in a chat, on the web, Telegram or Discord. They upload an image or paste an Instagram or X post link, and a link brings the caption and the account with the photo.</li>
+    <li>Beat 2. A language model is the agent. It runs one check at a time and explains it, and the person can ask for a check by name. The model is a choice. OpenAI, Claude, or a local model on the organisation's own computer, so images need not leave it.</li>
+    <li>The detection service holds the methods. Provenance, the pixel detectors, the context checks, and for a link, the caption and the account.</li>
+    <li>Beat 3. Results come back as explained cards, an evidence board with a tip for each fact, and the JPEG Trust report when the person asks for it.</li>
+  </ul></aside>
 </section>

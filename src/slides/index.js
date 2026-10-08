@@ -14,6 +14,8 @@ import distribution from './09-distribution.html?raw';
 import handoff from './10-handoff.html?raw';
 import techIntro from './tech/11-introducing-amito.html?raw';
 import techBuild from './tech/12-how-it-is-built.html?raw';
+import techOrchestrator from './tech/12a-orchestrator.html?raw';
+import techCaptions from './tech/12c-captions.html?raw';
 import techDemo from './tech/13-demo.html?raw';
 import techKeys from './tech/14-bring-your-own-keys.html?raw';
 import asksOpening from './15-asks-opening.html?raw';
@@ -34,6 +36,8 @@ export const slides = [
   handoff,
   techIntro,
   techBuild,
+  techOrchestrator,
+  techCaptions,
   techDemo,
   techKeys,
   asksOpening,

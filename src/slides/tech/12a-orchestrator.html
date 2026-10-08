@@ -1,0 +1,43 @@
+<section class="slide" data-id="tech" data-label="Amito orchestrates the checks" data-steps="2">
+  <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">Amito toolkit · tech team</p>
+  <h2 class="h1 abs" style="left:100px;top:152px">Amito orchestrates the checks</h2>
+
+  <div class="abs card" style="left:100px;top:300px;width:320px;padding:26px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+    <span class="label">What comes in</span>
+    <b class="h3" style="font-size:30px">An image, uploaded or linked</b>
+    <p class="small">Upload it, or paste the link of an Instagram or X post. A link brings the caption and the account with it.</p>
+  </div>
+  <img class="abs" src="media/amito/pose-analyze.webp" alt="Amito analysing" style="left:130px;top:560px;width:260px">
+
+  <div class="abs" style="left:470px;top:300px;width:400px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:var(--source);border-radius:24px;padding:16px 20px;display:flex;align-items:center;gap:14px"><span class="ic" style="width:44px;height:44px;border-radius:9999px;background:var(--white);display:grid;place-items:center"><img src="media/amito/icons/source.png" alt="" style="width:28px"></span><b style="font:700 30px/1 var(--f-display)">Source</b></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">Content Credentials (C2PA) on the file</p></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">File metadata and AI labels</p></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">Who posted it, and their recent posts</p></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">What the caption itself says</p></div>
+  </div>
+  <div class="abs" style="left:894px;top:300px;width:400px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:var(--content);border-radius:24px;padding:16px 20px;display:flex;align-items:center;gap:14px"><span class="ic" style="width:44px;height:44px;border-radius:9999px;background:var(--white);display:grid;place-items:center"><img src="media/amito/icons/content.png" alt="" style="width:28px"></span><b style="font:700 30px/1 var(--f-display)">Content</b></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">Five AI-image detectors, one calibrated score</p></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">A face check for swaps and lip-sync</p></div>
+  </div>
+  <div class="abs" style="left:1318px;top:300px;width:400px;display:flex;flex-direction:column;gap:12px">
+    <div style="background:var(--align);border-radius:24px;padding:16px 20px;display:flex;align-items:center;gap:14px"><span class="ic" style="width:44px;height:44px;border-radius:9999px;background:var(--white);display:grid;place-items:center"><img src="media/amito/icons/alignment.png" alt="" style="width:28px"></span><b style="font:700 30px/1 var(--f-display)">Alignment</b></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">The place, from GPS, scenery and landmarks</p></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">The weather on the claimed day</p></div>
+    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">The story told, against the file's own records</p></div>
+  </div>
+
+  <div class="abs card" data-in="1" style="left:470px;top:790px;width:1248px;padding:24px 30px;box-sizing:border-box;display:flex;gap:28px;align-items:center;border:3px solid var(--primary)">
+    <div style="flex:0 0 360px"><span class="label" style="color:var(--primary)">One report</span><b class="h3" style="display:block;font-size:30px;margin-top:6px">JPEG Trust, ISO/IEC 21617</b></div>
+    <p class="small" style="color:var(--ink)">A trust profile checks 15 rules in order, from the strongest evidence to the weakest. Declarations and signatures outweigh detectors. Detector scores alone never make an image authentic.</p>
+  </div>
+
+
+  <p class="src">Sources. Amito toolkit and its trust profile (amito-default), test runs 6 to 8 Oct 2026. <a href="https://www.iso.org/standard/91405.html" target="_blank">ISO/IEC 21617-1:2026</a>.</p>
+  <aside class="notes"><ul>
+    <li>Amito is an agent that orchestrates separate tools. It runs one check per step, explains it, and proposes the next one. The person can also ask for a check by name.</li>
+    <li>Each tool sits under the STOP&amp;SCAN step it serves. Provenance, metadata, the account and the caption feed Source. The detectors feed Content. Place, weather and the story feed Alignment.</li>
+    <li>Beat 2. Everything goes into one JPEG Trust report. A trust profile checks its rules in order, strongest evidence first, so a signed declaration outweighs a detector score.</li>
+  </ul></aside>
+</section>

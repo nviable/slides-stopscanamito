@@ -70,6 +70,24 @@ Wordings to avoid. "Camera makers are backing out" (only Nikon, and it is a susp
 
 Open check. The pilot footnote says n = 46, but every pilot percentage is a multiple of 1/32. Confirm the per-question n before presenting.
 
+## Amito toolkit
+
+Results come from the Amito toolkit's own test runs, 6 to 8 Oct 2026. The repository is private, so the slides cite the toolkit rather than a link.
+
+| Claim as worded on the slide | Slide | Source |
+| --- | --- | --- |
+| Amito runs the methods of Source, Content and Alignment with the person, one check at a time, and explains each result in plain words. Stop and Now Reflect stay with the person | Introducing | Amito toolkit, Oct 2026 |
+| Upload the image, and Amito reads the file itself, its Content Credentials and its camera metadata. Or paste the link of an Instagram or X post, and Amito fetches the full photo, the caption and who posted it. Bluesky links work too (Pinterest, Flickr and Imgur in the speaker notes) | Introducing, How it is built | Amito toolkit, link input, tested on real Instagram and X posts, 2 to 7 Oct 2026. Reddit is not claimed, because it blocks server requests |
+| Built by the AMAS technology group. People reach it in a web chat, on Telegram and on Discord, which share one agent | Introducing, How it is built | Amito toolkit, Oct 2026. Programme roles as in `CLAUDE.md` |
+| A language model reads the conversation, runs one check, explains it and proposes the next one. The person can ask for a check by name. The model is OpenAI, Claude, or a local model on the organisation's own computer | How it is built | Amito toolkit, Oct 2026. A local model (Mistral Small 3.2 with Ollama) was tested on one GPU, 7 Oct 2026 |
+| The detection service checks provenance (Content Credentials, AI labels in the metadata, SynthID, reverse image search), pixels (five AI-image detectors combined into one calibrated score, and a face check), context (camera metadata and GPS, the place from scenery and landmarks, the weather) and, for a link, the caption and who posted it | How it is built, Orchestrator | Amito toolkit, Oct 2026. Reverse image search needs a Google Cloud key |
+| Results come back as a card per check with what ran, why and what it found, an evidence board of what points to fake, to authentic and what is good to know with a tip for each, and a JPEG Trust report when the person asks | How it is built | Amito web chat, Oct 2026 |
+| A trust profile checks 15 rules in order, from the strongest evidence to the weakest. Declarations and signatures outweigh detectors. Detector scores alone never make an image authentic | Orchestrator | Amito trust profile amito-default, 8 Oct 2026. JPEG Trust is [ISO/IEC 21617-1:2026](https://www.iso.org/standard/91405.html) |
+| The report runs when the person asks for it | How it is built | Amito toolkit, Oct 2026. The server refuses the report unless the person asks, or in auto mode at the end of the run |
+| An X post of 30 Sep 2026 says "Made with gpt image 2.5" and shares its prompt. The pixel detectors saw no AI signs. The caption gave Likely AI-generated, high confidence | Captions | Amito test run in the web chat, 6 Oct 2026. The post is recreated. The handle and image are not shown |
+| A caption that says the image was made with AI counts like an AI label in the file | Captions | Amito trust profile, 6 Oct 2026. Trusted Content Credentials still outweigh it |
+| Fixed patterns find generator names, AI hashtags and a shared prompt. A language model must quote the caption, and the quote must be in the caption. A caption that only asks or denies doesn't count, and one that tries to steer the model gets the patterns only | Captions | Amito toolkit, caption check, 6 Oct 2026 |
+
 ## Marcus's crowd photo
 
 Directions follow the analyst companion of 5 Oct 2026. Supported means the check supports what the photograph represents. The companion gives no detector percentage, so the slide says Near even and does not state one.
