@@ -1,43 +1,54 @@
-<section class="slide" data-id="tech" data-label="Amito orchestrates the checks" data-steps="2">
+<section class="slide" data-id="tech" data-label="Amito orchestrates the checks" data-steps="3">
   <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">Amito toolkit · tech team</p>
   <h2 class="h1 abs" style="left:100px;top:152px">Amito orchestrates the checks</h2>
 
-  <div class="abs card" style="left:100px;top:300px;width:320px;padding:26px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
-    <span class="label">What comes in</span>
-    <b class="h3" style="font-size:30px">An image, uploaded or linked</b>
-    <p class="small">Upload it, or paste the link of an Instagram or X post. A link brings the caption and the account with it.</p>
-  </div>
-  <img class="abs" src="media/amito/pose-analyze.webp" alt="Amito analysing" style="left:130px;top:560px;width:260px">
-
-  <div class="abs" style="left:470px;top:300px;width:400px;display:flex;flex-direction:column;gap:12px">
-    <div style="background:var(--source);border-radius:24px;padding:16px 20px;display:flex;align-items:center;gap:14px"><span class="ic" style="width:44px;height:44px;border-radius:9999px;background:var(--white);display:grid;place-items:center"><img src="media/amito/icons/source.png" alt="" style="width:28px"></span><b style="font:700 30px/1 var(--f-display)">Source</b></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">Content Credentials (C2PA) on the file</p></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">File metadata and AI labels</p></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">Who posted it, and their recent posts</p></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">What the caption itself says</p></div>
-  </div>
-  <div class="abs" style="left:894px;top:300px;width:400px;display:flex;flex-direction:column;gap:12px">
-    <div style="background:var(--content);border-radius:24px;padding:16px 20px;display:flex;align-items:center;gap:14px"><span class="ic" style="width:44px;height:44px;border-radius:9999px;background:var(--white);display:grid;place-items:center"><img src="media/amito/icons/content.png" alt="" style="width:28px"></span><b style="font:700 30px/1 var(--f-display)">Content</b></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">Five AI-image detectors, one calibrated score</p></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">A face check for swaps and lip-sync</p></div>
-  </div>
-  <div class="abs" style="left:1318px;top:300px;width:400px;display:flex;flex-direction:column;gap:12px">
-    <div style="background:var(--align);border-radius:24px;padding:16px 20px;display:flex;align-items:center;gap:14px"><span class="ic" style="width:44px;height:44px;border-radius:9999px;background:var(--white);display:grid;place-items:center"><img src="media/amito/icons/alignment.png" alt="" style="width:28px"></span><b style="font:700 30px/1 var(--f-display)">Alignment</b></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">The place, from GPS, scenery and landmarks</p></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">The weather on the claimed day</p></div>
-    <div class="card" style="padding:14px 18px"><p class="small" style="color:var(--ink)">The story told, against the file's own records</p></div>
+  <div class="chat" style="left:100px;top:290px;width:390px;height:620px">
+    <header><img src="media/amito/home-waving.webp" alt=""><div><b>Amito</b><br><span>Web chat</span></div></header>
+    <div class="msgs" style="padding:20px;gap:14px">
+      <div class="msg u" style="font-size:20px;max-width:320px">Is this real? instagram.com/p/...</div>
+      <div class="msg a" style="font-size:20px;max-width:320px">What made you stop at this one?</div>
+      <div class="msg u" style="font-size:20px;max-width:320px">It is shared as a real photo.</div>
+      <div class="msg a" style="font-size:20px;max-width:320px">I'll check its Content Credentials first.</div>
+      <div class="msg u" style="font-size:20px;max-width:320px">And who posted it?</div>
+    </div>
   </div>
 
-  <div class="abs card" data-in="1" style="left:470px;top:790px;width:1248px;padding:24px 30px;box-sizing:border-box;display:flex;gap:28px;align-items:center;border:3px solid var(--primary)">
-    <div style="flex:0 0 360px"><span class="label" style="color:var(--primary)">One report</span><b class="h3" style="display:block;font-size:30px;margin-top:6px">JPEG Trust, ISO/IEC 21617</b></div>
-    <p class="small" style="color:var(--ink)">A trust profile checks 15 rules in order, from the strongest evidence to the weakest. Declarations and signatures outweigh detectors. Detector scores alone never make an image authentic.</p>
+  <svg class="abs" data-in="1" style="left:0;top:0;width:1920px;height:1080px;z-index:1" viewBox="0 0 1920 1080" aria-hidden="true">
+    <ellipse cx="1045" cy="655" rx="420" ry="280" fill="none" stroke="var(--outline-v)" stroke-width="2" stroke-dasharray="6 10"/>
+    <g stroke="var(--outline-v)" stroke-width="2"><line x1="1045" y1="655" x2="625" y2="655"/><line x1="1045" y1="655" x2="723" y2="475"/><line x1="1045" y1="655" x2="972" y2="379"/><line x1="1045" y1="655" x2="1255" y2="413"/><line x1="1045" y1="655" x2="1440" y2="559"/><line x1="1045" y1="655" x2="1440" y2="751"/><line x1="1045" y1="655" x2="1255" y2="897"/><line x1="1045" y1="655" x2="972" y2="931"/><line x1="1045" y1="655" x2="723" y2="835"/></g>
+  </svg>
+  <div class="abs" style="left:895px;top:505px;width:300px;height:300px;border-radius:9999px;background:var(--surface-low);box-shadow:0 0 0 14px var(--white),var(--shadow-card);display:grid;place-items:center;z-index:2">
+    <img src="media/amito/pose-analyze.webp" alt="Amito, the agent" style="width:250px">
   </div>
+  <span class="tag abs" style="left:920px;top:805px;width:250px;justify-content:center;background:var(--primary);color:var(--white);z-index:3">The agent</span>
 
 
-  <p class="src">Sources. Amito toolkit and its trust profile (amito-default), test runs 6 to 8 Oct 2026. <a href="https://www.iso.org/standard/91405.html" target="_blank">ISO/IEC 21617-1:2026</a>.</p>
+  <div class="abs" data-in="1" style="left:509px;top:625px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--source);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--source)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Content Credentials</span></div>
+  <div class="abs" data-in="1" style="left:607px;top:445px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--source);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--source)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">File metadata and AI labels</span></div>
+  <div class="abs" data-in="1" style="left:856px;top:349px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--source);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--source)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Who posted it</span></div>
+  <div class="abs" data-in="1" style="left:1139px;top:383px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--source);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--source)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">What the caption says</span></div>
+  <div class="abs" data-in="1" style="left:1324px;top:529px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--content);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--content)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Five AI-image detectors</span></div>
+  <div class="abs" data-in="1" style="left:1324px;top:721px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--content);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--content)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Face check</span></div>
+  <div class="abs" data-in="1" style="left:1139px;top:867px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--align);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--align)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Place and landmarks</span></div>
+  <div class="abs" data-in="1" style="left:856px;top:901px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--align);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--align)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Weather on the day</span></div>
+  <div class="abs" data-in="1" style="left:607px;top:805px;width:232px;height:60px;box-sizing:border-box;background:var(--white);border:3px solid var(--align);border-radius:9999px;box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:10px;padding:0 16px;z-index:2"><i style="flex:none;width:14px;height:14px;border-radius:9999px;background:var(--align)"></i><span style="font:600 18px/1.15 var(--f-body);color:var(--ink)">Story against the records</span></div>
+  <span class="abs" data-in="2" style="left:495px;top:609px;width:40px;height:40px;border-radius:9999px;background:var(--primary);color:var(--white);display:grid;place-items:center;font:700 22px/1 var(--f-display);z-index:3;box-shadow:var(--shadow-card)">1</span>
+  <span class="abs" data-in="2" style="left:1125px;top:367px;width:40px;height:40px;border-radius:9999px;background:var(--primary);color:var(--white);display:grid;place-items:center;font:700 22px/1 var(--f-display);z-index:3;box-shadow:var(--shadow-card)">3</span>
+  <span class="abs" data-in="2" style="left:1310px;top:513px;width:40px;height:40px;border-radius:9999px;background:var(--primary);color:var(--white);display:grid;place-items:center;font:700 22px/1 var(--f-display);z-index:3;box-shadow:var(--shadow-card)">2</span>
+
+  <div class="abs card" data-in="2" style="left:1580px;top:375px;width:240px;padding:22px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;border:3px solid var(--primary);z-index:2">
+    <span class="label" style="color:var(--primary)">One report</span>
+    <b class="h3" style="font-size:28px">A trust profile</b>
+    <p class="small" style="color:var(--ink);font-size:20px">15 rules, strongest evidence first. Declarations and signatures outweigh detectors. Detector scores alone never make an image authentic.</p>
+    <p class="small" style="font-size:18px">In the JPEG Trust profile format, with Amito extensions</p>
+  </div>
+  <p class="small abs" data-in="2" style="left:1580px;top:868px;width:240px;font-size:19px">The numbers show one route. The agent picks the next check, or the person asks for one.</p>
+
+  <p class="src">Sources. Amito toolkit and its trust profile (amito-default), test runs 6 to 10 Oct 2026, checked on the JPEG Trust committee's <a href="https://gitlab.com/wg1/jpeg-trust" target="_blank">profile evaluator</a>. JPEG Trust is <a href="https://www.iso.org/standard/91405.html" target="_blank">ISO/IEC 21617-1:2026</a>.</p>
   <aside class="notes"><ul>
-    <li>Amito is an agent that orchestrates separate tools. It runs one check per step, explains it, and proposes the next one. The person can also ask for a check by name.</li>
-    <li>Each tool sits under the STOP&amp;SCAN step it serves. Provenance, metadata, the account and the caption feed Source. The detectors feed Content. Place, weather and the story feed Alignment.</li>
-    <li>Beat 2. Everything goes into one JPEG Trust report. A trust profile checks its rules in order, strongest evidence first, so a signed declaration outweighs a detector score.</li>
+    <li>Amito is an agent in a chat. It doesn't run a fixed pipeline. It reads the conversation and picks one check at a time, explains it, and proposes the next. The person can also ask for a check by name, like who posted it.</li>
+    <li>Beat 2. Around it are the tools, coloured by the STOP&amp;SCAN step they serve. Source in cyan, Content in green, Alignment in pink.</li>
+    <li>Beat 3. One route through them. Credentials first, then the pixels, then the caption. Every result goes into one trust report, where a trust profile checks its rules in order, strongest evidence first, so a signed declaration outweighs a detector score.</li>
+    <li>The profile is written in the JPEG Trust profile format, with our own extensions, and its statements give the same results on the committee's profile evaluator. It follows the model. We don't claim conformance. Part 2, the Trust Profiles Catalogue, will define the conformance points for profiles, and it is still in development.</li>
   </ul></aside>
 </section>
