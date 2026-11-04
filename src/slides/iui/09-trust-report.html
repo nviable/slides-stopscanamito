@@ -1,0 +1,43 @@
+<section class="slide" data-auds="iui" data-id="tech" data-label="Rule-based trust report" data-steps="2">
+  <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">C3&emsp;Rule-based trust report</p>
+  <h2 class="h1 abs" style="left:100px;top:152px">Written rules set the reference verdict</h2>
+
+  <div class="abs" style="left:100px;top:290px;width:800px;display:flex;flex-direction:column;gap:16px">
+    <p class="body" style="margin:0;font-size:26px;color:var(--ink)">The report runs a fixed set of checks, so orchestration shapes the conversation, not the verdict. The first match among <b>15 ordered rules</b> in the trust profile sets the verdict and its confidence.</p>
+    <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center"><span class="h3" style="flex:none;width:40px;font-size:30px;color:var(--primary)">1</span><p class="small" style="color:var(--ink);font-size:21px">Declarations and signatures come first</p></div>
+    <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center"><span class="h3" style="flex:none;width:40px;font-size:30px;color:var(--primary)">2</span><p class="small" style="color:var(--ink);font-size:21px">A place or date contradicting the claim gives <span class="verdict" style="font-size:15px;padding:6px 12px">Misleading context</span></p></div>
+    <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center"><span class="h3" style="flex:none;width:40px;font-size:30px;color:var(--primary)">3</span><p class="small" style="color:var(--ink);font-size:21px">Pixels come last</p></div>
+    <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;background:var(--surface-low)"><span class="label" style="flex:none;width:40px;font-size:15px">Else</span><p class="small" style="color:var(--ink);font-size:21px">The default is <span class="verdict" style="font-size:15px;padding:6px 12px">Uncertain</span></p></div>
+    <p class="small" style="margin:0;color:var(--ink);font-size:21px;font-weight:600">Pixels alone never yield authentic or high confidence, as detector outputs can mislead claim verification.</p>
+    <p class="small" style="margin:0;font-size:19px">Safeguards. AMITO must never identify people, must base statements on check results and must not overstate them.</p>
+  </div>
+
+  <div class="abs" data-in="1" style="left:960px;top:290px;width:860px;display:flex;flex-direction:column;gap:14px">
+    <span class="label" style="color:var(--ink-2)">Four prepared demo scenarios</span>
+    <div class="card" style="padding:18px 24px;display:flex;flex-direction:column;gap:10px">
+      <p class="small" style="color:var(--ink);font-size:20px">An iPhone photo with GPS in Genoa is described as "taken in Valencia, Spain, last week". Place and date both contradict the file.</p>
+      <span class="verdict" style="align-self:flex-start">Misleading context <small>High</small></span>
+    </div>
+    <div class="card" style="padding:18px 24px;display:flex;flex-direction:column;gap:10px">
+      <p class="small" style="color:var(--ink);font-size:20px">A post recreated from X names its image generator. The pixels show no AI signs, yet the disclosure alone decides.</p>
+      <span class="verdict" style="align-self:flex-start">AI-generated <small>High</small></span>
+    </div>
+    <div class="card" style="padding:18px 24px;display:flex;flex-direction:column;gap:10px">
+      <p class="small" style="color:var(--ink);font-size:20px">A signed photo was edited after signing.</p>
+      <span class="verdict" style="align-self:flex-start">Manipulated <small>Medium</small></span>
+    </div>
+    <div class="card" style="padding:18px 24px;display:flex;flex-direction:column;gap:10px">
+      <p class="small" style="color:var(--ink);font-size:20px">The detectors rate a camera photo as strongly AI-generated, but its camera metadata blocks a pixel-only verdict.</p>
+      <span class="verdict" style="align-self:flex-start">Uncertain</span>
+    </div>
+  </div>
+
+  <p class="src">Source. AMITO trust profile, Oct 2026<span class="sep"></span><a href="https://doi.org/10.1109/ACCESS.2026.3686437" target="_blank" rel="noopener">Sagar et al., IEEE Access 2026</a></p>
+  <aside class="notes"><ul>
+    <li>About 30 seconds.</li>
+    <li>The report runs a fixed set of checks, so orchestration shapes the conversation, not the verdict. The first match among 15 ordered trust profile rules sets the verdict and confidence. Declarations and signatures come first. A place or date contradicting the claim gives misleading context. Pixels come last, and the default is uncertain.</li>
+    <li>Pixels alone never yield authentic or high confidence, because detector outputs can mislead claim verification. And the LLM cannot override the rules.</li>
+    <li>Safeguards. The safety guidelines of the LLM provider apply, and AMITO must never identify people, must base statements on check results and must not overstate them.</li>
+    <li>Beat 2. The four prepared scenarios of the demo. The Genoa photo said to be from Valencia gives misleading context, high. A post that names its image generator is AI-generated, high, from the disclosure alone. A signed photo edited after signing is manipulated, medium. And a camera photo the detectors call AI ends as uncertain, because its camera metadata blocks a pixel-only verdict.</li>
+  </ul></aside>
+</section>

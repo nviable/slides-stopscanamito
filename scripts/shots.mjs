@@ -6,13 +6,14 @@
 //   npm run shots                 every step
 //   npm run shots -- --only 4,12  just those step numbers (0-based, shown as kNN in the file name)
 //   npm run shots -- --slides 8   every step of slide 8 (1-based, as in the deck counter)
+//   npm run shots -- --aud iui    the IUI demo video instead of the IPTC talk (also jpegtrust)
 import { mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-export async function capture({ only = null, slides = null, type = 'png', outDir = join(root, 'shots'), wait = 3200 } = {}) {
+export async function capture({ aud = 'iptc', only = null, slides = null, type = 'png', outDir = join(root, 'shots'), wait = 3200 } = {}) {
   let chromium;
   try { ({ chromium } = await import('playwright')); }
   catch {
@@ -30,7 +31,7 @@ export async function capture({ only = null, slides = null, type = 'png', outDir
   const problems = [];
   page.on('pageerror', e => problems.push(String(e)));
   page.on('console', m => { if (m.type() === 'error') problems.push(m.text()); });
-  await page.goto(url, { waitUntil: 'networkidle' });
+  await page.goto(url + '#' + aud, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.addStyleTag({ content: '.ui{display:none!important}' });
 
@@ -54,6 +55,7 @@ export async function capture({ only = null, slides = null, type = 'png', outDir
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const arg = name => { const i = process.argv.indexOf(name); return i > -1 ? process.argv[i + 1].split(',').map(Number) : null; };
-  const files = await capture({ only: arg('--only'), slides: arg('--slides') });
+  const i = process.argv.indexOf('--aud');
+  const files = await capture({ aud: i > -1 ? process.argv[i + 1] : 'iptc', only: arg('--only'), slides: arg('--slides') });
   console.log(`Wrote ${files.length} screenshots to shots/`);
 }

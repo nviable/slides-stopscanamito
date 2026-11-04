@@ -2,6 +2,8 @@
 
 A 30 minute talk for the IPTC working group and JPEG Trust. The STOP&SCAN team (AMAS humanities group) presents the framework, and the Amito team (AMAS technology group) presents the toolkit. About 5 minutes of questions fall inside the 30. The deck is a Vite app in plain JavaScript, presented in a browser at 1920 x 1080 and scaled to fit.
 
+**Audiences.** The A key (or the Audience button) cycles IPTC, JPEG Trust and IUI. IPTC and JPEG Trust share the talk's slides. IUI is the IUI 2027 demo video, at most 5 minutes, built from the AMITO demo paper. Its slides live in `src/slides/iui/` with `data-auds="iui"` and have their own order. In those slides the system is written **AMITO** and the first step **STOP**, as in the paper, and the speaker notes are the voiceover script with a target time per slide. Claims for the video are in the IUI section of `docs/claims.md`. Deep links take the audience as a suffix, for example `#s4-iui`.
+
 ## Commands
 
 ```bash
@@ -11,7 +13,9 @@ npm run check        # validates slide files. Run after every change
 npm run build        # check, then build to dist/
 npm run shots        # screenshots of every step to shots/ (needs Playwright, see below)
 npm run shots -- --slides 8     # just slide 8, all its beats
+npm run shots -- --aud iui      # the IUI demo video (also jpegtrust)
 npm run pdf          # PDF fallback, one page per step, to exports/
+npm run pdf -- --aud iui        # exports/amito-iui-2027-demo.pdf
 ```
 
 Playwright and pdf-lib are not default dependencies because Playwright downloads a browser. Install them when you need screenshots with `npm i --no-save playwright pdf-lib && npx playwright install chromium`. If a Chromium binary already exists, point `CHROMIUM_PATH` at it instead of installing.
@@ -30,6 +34,7 @@ Playwright and pdf-lib are not default dependencies because Playwright downloads
 | --- | --- |
 | `data-id` | Layout key in `src/pile/layouts.js`. Slides without a layout hide the pile |
 | `data-label` | Name shown in the notes panel |
+| `data-auds` | Audiences that show the slide, a space list such as `iui`. Without it the slide is in the IPTC and JPEG Trust talk |
 | `data-steps="n"` | Number of beats on the slide, default 1 |
 | `data-in="k"` | Element appears from beat k (0-based) |
 | `data-out="k"` | Element leaves from beat k |
@@ -55,6 +60,7 @@ Everything on a slide is absolutely positioned in stage pixels (1920 x 1080). Ke
 ## Ownership
 
 - John and the STOP&SCAN team own slides 1 to 10 and 15 to 18, plus `docs/claims.md`.
+- The AMITO paper authors own `src/slides/iui/`, the IUI video. Edits there don't touch the talk.
 - The Amito tech team owns `src/slides/tech/`. They may add slides there. Import any new ones in `index.js` between the handoff and the asks.
 - Changes to `src/engine/` or `src/pile/` affect everyone. Keep them small and describe them in the PR.
 

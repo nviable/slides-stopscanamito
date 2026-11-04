@@ -1,0 +1,47 @@
+<section class="slide" data-auds="iui" data-id="tech" data-label="AMITO explains in plain words" data-steps="2">
+  <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">C1&emsp;Explained, not just run</p>
+  <h2 class="h1 abs" style="left:100px;top:152px">AMITO explains in plain words</h2>
+  <p class="body abs" style="left:100px;top:262px;width:1720px">Forensic tools answer in codes. AMITO turns every result into sentences anyone can follow, and the person can always ask why.</p>
+
+  <div class="abs" style="left:100px;top:340px;width:720px;height:650px;box-sizing:border-box;padding:22px 0 22px 26px;border-radius:24px;background:var(--inverse);color:var(--on-inverse);box-shadow:var(--shadow-card);overflow:hidden">
+    <span class="label" style="color:var(--on-inverse);opacity:.7">What the C2PA validator returns</span>
+    <pre style="margin:12px 0 0;font:400 17px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;overflow:hidden;opacity:.92;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)">{
+  "active_manifest": "urn:uuid:851b30d6-af63-460c-967a-52b40e4cdb0b",
+  "manifests": { "urn:uuid:851b30d6-af63-460c-967a-52b40e4cdb0b": {
+    "claim_generator": "Black_Forest_Labs_API c2pa-rs/0.32.7",
+    "claim_generator_info": [ { "name": "Black Forest Labs API" }, { "name": "c2pa-rs", "version": "0.32.7" } ],
+    "title": "sample.png",
+    "format": "image/png", "instance_id": "xmp:iid:38b01ca6-326b-45da-a9e6-935a806d9390",
+    "assertions": [ { "label": "c2pa.actions.v2", "data": { "actions": [ {
+        "action": "c2pa.created", "softwareAgent": "Flux.1",
+        <span style="background:var(--primary);color:var(--white);border-radius:4px;padding:1px 4px">"digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia"</span> } ] } },
+      { "label": "c2pa.ai_generated_content", "data": { "model": "Flux.1", "ai_generated": true } },
+      { "label": "c2pa.content-origin", "data": { "creator": "Black Forest Labs" } },
+      { "label": "c2pa.creation-tool", "data": { "tool": "Black Forest Labs API - Flux.1" } } ],
+    "signature_info": { "alg": "Ps256", "issuer": "Black Forest Labs Inc.",
+      "cert_serial_number": "22610866767849886626509893098", "time": "2024-11-20T12:36:28+00:00" } } },
+  "validation_status": [
+    { "code": "signingCredential.untrusted", "url": "self#jumbf=/c2pa/urn:uuid:851b30d6-af63-460c-967a-52b40e4cdb0b/c2pa.signature", "explanation": "signing certificate untrusted" },
+    { "code": "claimSignature.mismatch", "url": "self#jumbf=/c2pa/urn:uuid:851b30d6-af63-460c-967a-52b40e4cdb0b/c2pa.signature", "explanation": "claim signature is not valid" } ]
+}</pre>
+    <span class="tag abs" style="left:26px;bottom:26px;font-size:17px;padding:8px 16px;background:var(--primary);color:var(--white)">Highlighted. IPTC Digital Source Type</span>
+  </div>
+
+  <div class="chat" style="left:880px;top:340px;width:940px;height:650px">
+    <header><img src="media/amito/home-waving.webp" alt=""><div><b>AMITO</b><br><span>Web chat</span></div></header>
+    <div class="msgs" style="padding:22px;gap:16px">
+      <div class="msg u" style="font-size:21px;max-width:640px">A friend sent me this on WhatsApp, I'm not sure where it comes from.</div>
+      <div class="msg a" style="font-size:21px;max-width:760px">The file has Content Credentials that declare it was created by the AI tool Flux.1, but the signer is not verified.</div>
+      <div class="msg u" data-in="1" style="font-size:21px;max-width:640px">I don't get it. What does it mean that the signer is not on the trust list, and that the file was changed after signing?</div>
+      <div class="msg a" data-in="1" style="font-size:21px;max-width:760px">The Content Credentials say the image was made by AI, but the company that signed them is not on the official trust list, so we don't know for sure who made them. The file was also edited after it was signed, but the AI declaration is still readable.</div>
+    </div>
+  </div>
+
+  <p class="src">Source. AMITO web chat and its C2PA check, run on an image made with Flux.1, 22 Oct 2026.</p>
+  <aside class="notes"><ul>
+    <li>About 10 seconds.</li>
+    <li>This is what a C2PA validator returns for an image made with Flux.1. URNs, a certificate serial number and two failure codes. Correct, and meaningless to most people. The highlighted line is the IPTC Digital Source Type.</li>
+    <li>AMITO says the same result in one sentence. The credentials say an AI tool made it, and the signer isn't verified.</li>
+    <li>Beat 2. The person can ask what that means in their own words, and AMITO explains the trust list and the edit after signing. These are real replies.</li>
+  </ul></aside>
+</section>

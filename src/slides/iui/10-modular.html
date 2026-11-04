@@ -1,0 +1,44 @@
+<section class="slide" data-auds="iui" data-id="tech" data-label="Modular architecture">
+  <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">C4&emsp;Modular architecture</p>
+  <h2 class="h1 abs" style="left:100px;top:152px">Host it yourself, swap any part</h2>
+  <p class="body abs" style="left:100px;top:262px;width:1500px">Any LLM with tool calling can run AMITO, locally through Ollama or through a hosted API. One setting switches it.</p>
+
+  <div class="abs card" style="left:100px;top:370px;width:547px;height:240px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="flex:none;width:76px;height:76px;border-radius:20px;border:var(--hair);background:var(--white);display:grid;place-items:center;box-shadow:var(--shadow-soft)"><img src="media/logos/openai.png" alt="OpenAI" style="width:48px;height:48px"></span>
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="label" style="color:var(--primary)">Your OpenAI key</span><b class="h3" style="font-size:34px">OpenAI</b></div>
+    </div>
+    <p class="small" style="color:var(--ink)">GPT models, billed to your own OpenAI account.</p>
+  </div>
+  <div class="abs card" style="left:687px;top:370px;width:547px;height:240px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="flex:none;width:76px;height:76px;border-radius:20px;border:var(--hair);background:var(--white);display:grid;place-items:center;box-shadow:var(--shadow-soft)"><img src="media/logos/claude.png" alt="Claude" style="width:48px;height:48px"></span>
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="label" style="color:var(--primary)">Your Anthropic key</span><b class="h3" style="font-size:34px">Claude</b></div>
+    </div>
+    <p class="small" style="color:var(--ink)">Claude models, billed to your own Anthropic account.</p>
+  </div>
+  <div class="abs card" style="left:1274px;top:370px;width:546px;height:240px;padding:28px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="flex:none;width:76px;height:76px;border-radius:20px;border:var(--hair);background:var(--white);display:grid;place-items:center;box-shadow:var(--shadow-soft)"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 20 3"/><path d="m16 7 3 3"/><path d="m18.5 4.5 2 2"/></svg></span>
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="label" style="color:var(--primary)">Private</span><b class="h3" style="font-size:34px">A local model</b></div>
+    </div>
+    <p class="small" style="color:var(--ink)">An open model runs with Ollama on the organisation's own computer. Images need not reach an LLM provider.</p>
+  </div>
+  <div class="abs" style="left:100px;top:660px;width:700px;height:200px;box-sizing:border-box;padding:30px 36px;border-radius:24px;background:var(--inverse);color:var(--on-inverse);font:500 26px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;box-shadow:var(--shadow-card)">
+    <div>LLM_PROVIDER=claude</div>
+    <div>ANTHROPIC_API_KEY=<span style="opacity:.6">your own key</span></div>
+    <div>CLAUDE_MODEL=<span style="opacity:.6">the model you pick</span></div>
+  </div>
+  <div class="abs card" style="left:840px;top:660px;width:980px;height:300px;padding:26px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px">
+    <span class="label" style="color:var(--primary)">Exchange or extend</span>
+    <p class="small" style="color:var(--ink);font-size:22px"><b>Forensic models.</b> New detectors join the detection service behind a shared interface.</p><p class="small" style="color:var(--ink);font-size:22px"><b>Tools and API connections.</b> The agent orchestrates them like the existing checks.</p><p class="small" style="color:var(--ink);font-size:22px"><b>Trust profile.</b> An organisation can write its own.</p><p class="small" style="color:var(--ink);font-size:22px;font-weight:700;margin-top:auto">The rules, not the LLM, weigh the evidence, so the LLM can be exchanged.</p>
+  </div>
+
+  <p class="src">Source. AMITO, Oct 2026. Providers and settings as in its configuration template.</p>
+  <aside class="notes"><ul>
+    <li>About 25 seconds.</li>
+    <li>Anyone can self-host AMITO and exchange or extend its parts. Any LLM with tool calling can be integrated, locally through Ollama or through a hosted API such as Anthropic's or OpenAI's. With a local model, images need not reach an LLM provider. Switching is one setting in the configuration.</li>
+    <li>New forensic models join the detection service behind a shared interface. The agent orchestrates new tools and API connections like the existing checks, and an organisation can write its own trust profile.</li>
+    <li>Because the rules and not the LLM weigh the evidence, the LLM can be exchanged without changing the verdict.</li>
+  </ul></aside>
+</section>

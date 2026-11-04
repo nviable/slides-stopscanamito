@@ -1,0 +1,58 @@
+<section class="slide" data-auds="iui" data-id="tech" data-label="Investigating together" data-steps="2">
+  <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">C2&emsp;Joint investigation</p>
+  <h2 class="h1 abs" style="left:100px;top:152px">Either the person or the agent can lead</h2>
+
+  <div class="abs card" style="left:100px;top:290px;width:840px;height:210px;padding:22px 28px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+    <span class="label" style="color:var(--primary)">The agent leads</span>
+    <p class="small" style="color:var(--ink);font-size:21px">It proposes the next check with a short reason, and asks for context when the answer would change what it checks next.</p>
+    <div class="msg a" style="font-size:19px;max-width:none;padding:12px 18px">The file has GPS and a capture time, so I can check the weather on that day. Shall I?</div>
+  </div>
+  <div class="abs card" style="left:100px;top:520px;width:840px;height:210px;padding:22px 28px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px">
+    <span class="label" style="color:var(--primary)">The person leads</span>
+    <p class="small" style="color:var(--ink);font-size:21px">They can take the initiative at any time, by asking a question, naming a check or adding context.</p>
+    <div class="msg u" style="font-size:19px;max-width:none;padding:12px 18px;align-self:flex-end">Wait, my friend said it was from last summer. Can you check who posted it?</div>
+  </div>
+
+  <div class="abs" data-in="1" style="left:100px;top:760px;width:840px;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="card" style="padding:20px 24px;display:flex;flex-direction:column;gap:8px;border:3px solid var(--primary)">
+      <b class="h3" style="font-size:24px">Both sides on one board</b>
+      <p class="small" style="color:var(--ink);font-size:18px">Explanations for and against an answer helped people tell correct from incorrect AI output. One-sided ones mainly persuaded.</p>
+      <span class="label" style="font-size:14px">Palod et al., 2026, preprint</span>
+    </div>
+    <div class="card" style="padding:20px 24px;display:flex;flex-direction:column;gap:8px;border:3px solid var(--primary)">
+      <b class="h3" style="font-size:24px">The report on request</b>
+      <p class="small" style="color:var(--ink);font-size:18px">Showing AI advice only on request reduced overreliance. AMITO offers the report once the useful checks have run.</p>
+      <span class="label" style="font-size:14px">Buçinca et al., CSCW 2021</span>
+    </div>
+  </div>
+
+  <div class="abs card" style="left:1000px;top:290px;width:820px;height:700px;padding:26px 30px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between"><b class="h3" style="font-size:32px">Evidence board</b><span class="small" style="font-size:18px">2 point to fake, 1 to authentic</span></div>
+    <span class="label" style="display:flex;align-items:center;gap:10px;font-size:16px"><i style="width:12px;height:12px;border-radius:9999px;background:var(--flamingo)"></i>Points to fake</span>
+    <div style="padding:14px 18px;border-radius:16px;background:var(--surface-low);border-left:6px solid var(--flamingo)">
+      <p class="small" style="color:var(--ink);font-size:20px">The landmark and the GPS put the photo in Malmö, Sweden, not New York.</p>
+      <span class="label" style="font-size:14px">Strong evidence from metadata and landmarks</span>
+    </div>
+    <div style="padding:14px 18px;border-radius:16px;background:var(--surface-low);border-left:6px solid var(--flamingo)">
+      <p class="small" style="color:var(--ink);font-size:20px">Records say cloudy on that day, the photo shows a clear sky.</p>
+      <span class="label" style="font-size:14px">Clue from the weather</span>
+    </div>
+    <span class="label" style="display:flex;align-items:center;gap:10px;font-size:16px;margin-top:6px"><i style="width:12px;height:12px;border-radius:9999px;background:var(--welcome)"></i>Points to authentic</span>
+    <div style="padding:14px 18px;border-radius:16px;background:var(--surface-low);border-left:6px solid var(--welcome)">
+      <p class="small" style="color:var(--ink);font-size:20px">No sign of AI in the pixels.</p>
+      <span class="label" style="font-size:14px">Clue from AI-image detectors</span>
+    </div>
+    <div style="margin-top:auto;padding:14px 18px;border-radius:16px;border:2px dashed var(--outline-v)">
+      <span class="label" style="font-size:14px;color:var(--primary)">Learning tip</span>
+      <p class="small" style="color:var(--ink);font-size:19px;margin-top:4px">Modern AI images can slip past detectors, so this is a clue, never proof of a real photo.</p>
+    </div>
+  </div>
+
+  <p class="src">Source. AMITO web chat, Oct 2026. Board entries from the demo run, shown in short<span class="sep"></span><a href="https://arxiv.org/abs/2605.10930" target="_blank" rel="noopener">Palod, Biswas and Kambhampati, 2026, preprint</a><span class="sep"></span><a href="https://doi.org/10.1145/3449287" target="_blank" rel="noopener">Buçinca, Malaya and Gajos, CSCW 2021</a></p>
+  <aside class="notes"><ul>
+    <li>About 20 seconds.</li>
+    <li>The investigation is mixed-initiative. The agent proposes the next check with a short reason, and asks for context when the answer would change what it checks next. The person can take over at any time, by asking a question, naming a check or adding context.</li>
+    <li>Each result appears as an explained card. The evidence board collects the findings by what they point to, marks each as strong evidence or a clue, and adds a short learning tip.</li>
+    <li>Beat 2. Two design choices from the literature. We show both sides, because explanations for and against an answer helped people tell correct from incorrect AI output, while one-sided ones mainly persuaded. That study is a preprint. And the trust report comes once the useful checks have run or when the person asks, because showing AI advice only on request reduced overreliance.</li>
+  </ul></aside>
+</section>

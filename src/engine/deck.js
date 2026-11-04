@@ -8,13 +8,26 @@
 //   .pill[data-k]    gets .now on beat k and .past before it (the Marcus step strip)
 //   <aside class="notes"> holds speaker notes, shown with N
 // The pile layout for a slide comes from layouts[slide.dataset.id](beat).
+//
+// Audiences. A switches between them. Slides without data-auds belong to the talk, shown
+// for IPTC and JPEG Trust. data-auds="iui" (a space-separated list) limits a slide to those
+// audiences, so the IUI demo video has its own slides and order.
 
 const W = 1920, H = 1080;
+const AUDS = { iptc: 'IPTC', jpegtrust: 'JPEG Trust', iui: 'IUI' };
+const ORDER = Object.keys(AUDS);
+const TALK = ['iptc', 'jpegtrust'];
+const inAudience = (s, a) => (s.dataset.auds ? s.dataset.auds.trim().split(/\s+/) : TALK).includes(a);
 
 export function createDeck({ viewport, stage, pile, layouts, ui }) {
-  const slides = [...stage.querySelectorAll('.slide')];
+  const all = [...stage.querySelectorAll('.slide')];
+  let slides = [];
   const steps = [];
-  slides.forEach((s, i) => { const n = +(s.dataset.steps || 1); for (let b = 0; b < n; b++) steps.push([i, b]); });
+  function collect(a) {
+    slides = all.filter(s => inAudience(s, a));
+    steps.length = 0;
+    slides.forEach((s, i) => { const n = +(s.dataset.steps || 1); for (let b = 0; b < n; b++) steps.push([i, b]); });
+  }
 
   function fit() {
     const r = viewport.getBoundingClientRect();
@@ -30,15 +43,15 @@ export function createDeck({ viewport, stage, pile, layouts, ui }) {
   function go(k) {
     k = Math.max(0, Math.min(steps.length - 1, k));
     const [i, b] = steps[k];
-    slides.forEach((s, j) => { s.classList.toggle('on', j === i); s.setAttribute('aria-hidden', j === i ? 'false' : 'true'); });
     const s = slides[i];
+    all.forEach(sl => { sl.classList.toggle('on', sl === s); sl.setAttribute('aria-hidden', sl === s ? 'false' : 'true'); });
     s.dataset.beat = b;
     s.querySelectorAll('[data-in]').forEach(e => e.classList.toggle('in', b >= +e.dataset.in));
     s.querySelectorAll('[data-out]').forEach(e => e.classList.toggle('gone', b >= +e.dataset.out));
     s.querySelectorAll('[data-only]').forEach(e => e.classList.toggle('off', !e.dataset.only.split(',').map(Number).includes(b)));
     s.querySelectorAll('.pill[data-k]').forEach(p => { const kk = +p.dataset.k; p.classList.toggle('now', kk === b); p.classList.toggle('past', kk < b); });
     // A slide's video[data-autoplay] plays while the slide is on and pauses when it leaves
-    slides.forEach((sl, j) => sl.querySelectorAll('video[data-autoplay]').forEach(v => { if (j === i) v.play().catch(() => {}); else v.pause(); }));
+    all.forEach(sl => sl.querySelectorAll('video[data-autoplay]').forEach(v => { if (sl === s) v.play().catch(() => {}); else v.pause(); }));
     cur = k;
     applyLayout();
     updateUI();
@@ -57,7 +70,7 @@ export function createDeck({ viewport, stage, pile, layouts, ui }) {
     const [i, b] = steps[cur], n = +(slides[i].dataset.steps || 1);
     ui.count.textContent = `${i + 1} / ${slides.length}` + (n > 1 ? `  ·  ${b + 1} of ${n}` : '');
     renderNotes(i);
-    try { history.replaceState(null, '', '#s' + (i + 1) + (aud === 'jpegtrust' ? '-jpegtrust' : '')); } catch (e) { /* sandboxed viewers */ }
+    try { history.replaceState(null, '', '#s' + (i + 1) + (aud === 'iptc' ? '' : '-' + aud)); } catch (e) { /* sandboxed viewers */ }
   }
 
   function renderNotes(i) {
@@ -76,14 +89,17 @@ export function createDeck({ viewport, stage, pile, layouts, ui }) {
 
   function setNotes(on) { ui.notes.hidden = !on; ui.notesButton.setAttribute('aria-pressed', on ? 'true' : 'false'); }
 
-  function setAudience(a) {
+  // Switching keeps the current slide when the new audience has it, else starts from the top.
+  function setAudience(a, move = true) {
+    const was = cur >= 0 ? slides[steps[cur][0]] : null;
     aud = a;
+    collect(a);
     document.body.dataset.aud = a;
-    ui.audButton.textContent = 'Audience: ' + (a === 'iptc' ? 'IPTC' : 'JPEG Trust');
+    ui.audButton.textContent = 'Audience: ' + AUDS[a];
     try { localStorage.setItem('ss-aud', a); } catch (e) { /* storage blocked */ }
-    applyLayout();
-    updateUI();
+    if (move) { const k = steps.findIndex(([i]) => slides[i] === was); go(k >= 0 ? k : 0); }
   }
+  const nextAudience = () => ORDER[(ORDER.indexOf(aud) + 1) % ORDER.length];
 
   function fullscreen() {
     try {
@@ -110,7 +126,7 @@ export function createDeck({ viewport, stage, pile, layouts, ui }) {
     else if (k === 'Home') { e.preventDefault(); go(0); }
     else if (k === 'End') { e.preventDefault(); go(steps.length - 1); }
     else if (k === 'n' || k === 'N') setNotes(ui.notes.hidden);
-    else if (k === 'a' || k === 'A') setAudience(aud === 'iptc' ? 'jpegtrust' : 'iptc');
+    else if (k === 'a' || k === 'A') setAudience(nextAudience());
     else if (k === 'f' || k === 'F') fullscreen();
     else return;
     wake();
@@ -123,22 +139,26 @@ export function createDeck({ viewport, stage, pile, layouts, ui }) {
   ui.prev.addEventListener('click', () => go(cur - 1));
   ui.next.addEventListener('click', () => go(cur + 1));
   ui.notesButton.addEventListener('click', () => setNotes(ui.notes.hidden));
-  ui.audButton.addEventListener('click', () => setAudience(aud === 'iptc' ? 'jpegtrust' : 'iptc'));
+  ui.audButton.addEventListener('click', () => setAudience(nextAudience()));
   ui.fullButton.addEventListener('click', fullscreen);
 
-  // Deep links. #s7 opens slide 7, #k12 opens step 12, #jpegtrust sets the audience.
-  let start = 0, a0 = null;
+  // Deep links. #s7 opens slide 7, #k12 opens step 12, #jpegtrust or #iui sets the audience.
+  // Slide and step numbers count within the audience.
+  let a0 = null, si = null, k0 = null;
   try { a0 = localStorage.getItem('ss-aud'); } catch (e) { /* storage blocked */ }
   (location.hash || '').slice(1).split('-').forEach(t => {
     let m = /^s(\d+)$/.exec(t);
-    if (m) { const si = +m[1] - 1, k = steps.findIndex(([i]) => i === si); if (k >= 0) start = k; }
+    if (m) si = +m[1] - 1;
     m = /^k(\d+)$/.exec(t);
-    if (m) start = Math.min(steps.length - 1, +m[1]);
-    if (t === 'iptc' || t === 'jpegtrust') a0 = t;
+    if (m) k0 = +m[1];
+    if (AUDS[t]) a0 = t;
   });
-  setAudience(a0 === 'jpegtrust' ? 'jpegtrust' : 'iptc');
+  setAudience(AUDS[a0] ? a0 : 'iptc', false);
+  let start = 0;
+  if (si !== null) { const k = steps.findIndex(([i]) => i === si); if (k >= 0) start = k; }
+  if (k0 !== null) start = Math.min(steps.length - 1, k0);
   go(start);
   wake();
 
-  return { go, steps, slides, get current() { return cur; } };
+  return { go, steps, get slides() { return slides; }, get audience() { return aud; }, get current() { return cur; } };
 }

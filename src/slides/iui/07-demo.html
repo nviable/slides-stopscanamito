@@ -1,0 +1,36 @@
+<section class="slide" data-auds="iui" data-id="tech" data-label="Demo" data-steps="2">
+  <p class="eyebrow abs" style="left:100px;top:110px;color:var(--primary)">Demo in the web chat</p>
+  <h2 class="h1 abs" style="left:100px;top:152px">AMITO in the web chat</h2>
+
+  <video class="abs" src="media/video/amito2-web.mp4" data-autoplay muted playsinline controls preload="auto"
+         style="left:100px;top:290px;width:1248px;height:702px;border-radius:24px;background:var(--inverse);box-shadow:var(--shadow-card);object-fit:cover"></video>
+
+  <div class="abs" style="left:1388px;top:290px;width:432px;display:flex;flex-direction:column;gap:16px">
+    <div class="card" style="padding:20px 24px;border-left:8px solid var(--stop)">
+      <span class="label" style="color:var(--ink-2)">The story</span>
+      <p class="small" style="color:var(--ink);font-size:21px;margin-top:8px">A friend sent the photo. He says he took it yesterday in New York.</p>
+    </div>
+    <div class="card" style="padding:20px 24px;display:flex;flex-direction:column;gap:12px">
+      <span class="label" style="color:var(--ink-2)">One check at a time</span>
+      <p class="small" style="display:flex;gap:12px;font-size:20px;color:var(--ink)"><i style="flex:none;width:14px;height:14px;margin-top:7px;border-radius:9999px;background:var(--align)"></i><span><b>Context.</b> The landmark and the GPS say Malmö, Sweden</span></p>
+      <p class="small" style="display:flex;gap:12px;font-size:20px;color:var(--ink)"><i style="flex:none;width:14px;height:14px;margin-top:7px;border-radius:9999px;background:var(--content)"></i><span><b>Pixels.</b> No sign of AI in the pixels</span></p>
+      <p class="small" style="display:flex;gap:12px;font-size:20px;color:var(--ink)"><i style="flex:none;width:14px;height:14px;margin-top:7px;border-radius:9999px;background:var(--source)"></i><span><b>Provenance.</b> No Content Credentials in the file</span></p>
+      <p class="small" style="display:flex;gap:12px;font-size:20px;color:var(--ink)"><i style="flex:none;width:14px;height:14px;margin-top:7px;border-radius:9999px;background:var(--align)"></i><span><b>Context.</b> Records say cloudy, the photo shows a clear sky</span></p>
+    </div>
+    <div class="card" data-in="1" style="padding:20px 24px;border:3px solid var(--primary);display:flex;flex-direction:column;gap:10px">
+      <span class="label" style="color:var(--primary)">Trust report, on request</span>
+      <span class="verdict" style="align-self:flex-start">Misleading context <small>High</small></span><b class="h3" style="display:block;font-size:26px">Real photo, misleading story</b>
+      <p class="small" style="font-size:19px">A reference verdict. The person decides.</p>
+    </div>
+  </div>
+
+  <p class="src">Source. AMITO web chat, screen recording, Oct 2026.</p>
+  <aside class="notes"><ul>
+    <li>About 1 minute 40 seconds, most of it the recording. Click the video to pause it.</li>
+    <li>STOP. AMITO asks what made the person stop before it checks anything. The answer is a story. A friend took it yesterday in New York.</li>
+    <li>Because the answer names a place, the agent starts with context. The landmark and the camera's GPS both put the photo in Malmö, Sweden. AMITO resolves "yesterday" against today and names the discrepancy.</li>
+    <li>Then the pixels. The detectors see no AI traces, which is a clue, not proof. Then provenance. No Content Credentials, which proves nothing either way. Then the weather. The records for that place and time say cloudy, the photo shows a clear sky.</li>
+    <li>Each result appears as an explained card, and the evidence board fills up by what each finding points to.</li>
+    <li>Beat 2. The trust report comes only when the person asks. Misleading context, high confidence. A real photo with a misleading story. It is a reference verdict, and the person decides.</li>
+  </ul></aside>
+</section>

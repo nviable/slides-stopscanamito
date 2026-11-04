@@ -229,3 +229,8 @@ body[data-aud="iptc"] [data-aud="jpegtrust"],body[data-aud="jpegtrust"] [data-au
 .fields .label{font-size:15px;color:var(--primary)}
 .fields b{font:700 25px/1.2 var(--f-display);color:var(--ink)}
 .fields p{margin:0;font:400 21px/1.5 var(--f-body);color:var(--ink)}
+
+/* IUI video. Trust report verdict, as small caps on the inverse surface. Never a step colour. */
+.verdict{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:9999px;background:var(--inverse);color:var(--on-inverse);font:700 18px/1 var(--f-display);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.verdict small{font:600 15px/1 var(--f-display);letter-spacing:.06em;opacity:.75}
+.src .sep{display:inline-block;width:26px}
